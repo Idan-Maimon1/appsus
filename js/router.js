@@ -1,12 +1,12 @@
-// import noteApp from './views/note-app.cmp.js';
-// import emailApp from './views/email-app.cmp.js';
-import homePage from './pages/app-home.cmp.js'
+// import noteApp from '';
+// import emailApp from '';
+import appHome from './pages/app-home.cmp.js'
 
 
 const routes = [
     {
         path: '/',
-        component: homePage
+        component: appHome
     },
     // {
     //     path: '/email',
