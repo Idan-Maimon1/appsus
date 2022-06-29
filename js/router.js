@@ -13,7 +13,7 @@ const routes = [
   //     component: emailApp
   // },
   {
-    path: '/notes',
+    path: '/keep',
     component: keep
   },
 ]
