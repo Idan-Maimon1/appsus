@@ -1,12 +1,34 @@
+import { mailService } from '../services/mail-service.js'
+import mailList from '../cmps/mail-list.cmp.js'
+import mailFilter from '../cmps/mail-filter.cmp.js'
+
 export default {
   template: `
- <section>Mail</section>
+ <section class="app-mail-main">Mail
+    <mail-list :mails="mailsForDisplay" />
+ </section>
 `,
-  data() {
-    return {}
+  components: {
+    mailList,
+    mailFilter,
   },
-  created() {},
-  methods: {},
-  computed: {},
-  unmounted() {},
+  data() {
+    return {
+      mails: null,
+      filterBy: null,
+    }
+  },
+  created() {
+    mailService.query().then((mails) => (this.mails = mails))
+  },
+  methods: {
+    setFilter(filterBy) {
+      this.filterBy = filterBy
+    },
+  },
+  computed: {
+    mailsForDisplay() {
+      return this.mails
+    },
+  },
 }

@@ -1,5 +1,3 @@
-
-
 @import 'setup/vars.css';
 @import 'setup/typography.css';
 
@@ -19,6 +17,6 @@
 
 @import 'mq/mq.css';
 
-body{
-    margin: 0;
+body {
+  margin: 0;
 }

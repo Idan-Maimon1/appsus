@@ -1,15 +1,15 @@
-// import { utilService } from './util-service.js'
-// import { storageService } from './async-storage-service.js'
+import { utilService } from '../../../services/util.service.js'
+import { storageService } from '../../../services/async-storage-service.js'
 
 const loggedinUser = {
-  email: 'user@appsus.com',
-  fullname: 'Mahatma Appsus',
+  email: 'yuvalevi@appsus.com',
+  fullname: 'Yuval Levy',
 }
 
 const gMails = [
   {
     id: 'e101',
-    subject: 'Miss you!',
+    subject: 'Miss you tons',
     body: 'Would love to catch up sometimes',
     isRead: false,
     sentAt: 1551133930594,
@@ -17,7 +17,7 @@ const gMails = [
   },
   {
     id: 'e102',
-    subject: 'Love you!',
+    subject: 'Love you',
     body: 'How are things going at your end?',
     isRead: true,
     sentAt: 1551133930978,
@@ -25,25 +25,33 @@ const gMails = [
   },
 ]
 
-// const MAILS_KEY = 'MAILS_DB'
+const MAILS_KEY = 'MAILS_DB'
 
-// export const mailService = {
-//   query,
-//   get,
-//   addReview,
-//   getEmptyReview,
-//   removeReview,
-// }
+export const mailService = {
+  query,
+  get,
+  // addReview,
+  // getEmptyReview,
+  // removeReview,
+}
 
-// _createMails()
+_createMails()
 
-// function query() {
-//   return storageService.query(MAILS_KEY)
-// }
+function query() {
+  return storageService.query(MAILS_KEY)
+}
 
-// function get(mailId) {
-//   return storageService.get(MAILS_KEY, mailId)
-// }
+function get(mailId) {
+  return storageService.get(MAILS_KEY, mailId)
+}
+
+function _createMails() {
+  let mails = utilService.loadFromStorage(MAILS_KEY)
+  if (!mails || !mails.length || mails === 'undefined') {
+    utilService.saveToStorage(MAILS_KEY, gMails)
+  }
+  return mails
+}
 
 // function getEmptyReview() {
 //   return {
@@ -69,12 +77,4 @@ const gMails = [
 //     mail.reviews.splice(idx, 1)
 //     return storageService.put(MAILS_KEY, mail)
 //   })
-// }
-
-// function _createMails() {
-//   let mails = utilService.loadFromStorage(MAILS_KEY)
-//   if (!mails || !mails.length || mails === 'undefined') {
-//     utilService.saveToStorage(MAILS_KEY, gMails)
-//   }
-//   return mails
 // }
