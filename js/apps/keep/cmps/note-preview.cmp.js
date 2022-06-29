@@ -1,12 +1,51 @@
+import noteTxt from './note-types/note-txt.cmp.js'
+import noteImg from './note-types/note-img.cmp.js'
+import noteVideo from './note-types/note-video.cmp.js'
+import noteTodos from './note-types/note-todos.cmp.js'
+
 export default {
- template: `
-   <div class="note-preview"></div>
+    props: ['note'],
+    template: `
+    <div class="note-preview">
+        <div v-if="note.type === noteTypes.txt">
+            <note-txt :currNote='currNote'/>
+        </div>
+        <div v-else-if="note.type === noteTypes.todos">
+            <note-todos  :currNote='currNote'/>
+        </div>
+        <div v-else-if="note.type === noteTypes.video">
+            <note-video  :currNote='currNote'/>
+        </div>
+        <div v-else-if="note.type === noteTypes.img">
+            <note-img :currNote='currNote'/>
+        </div>
+   </div>
 `,
-data() {
-return {};
-},
-created() {},
-methods: {},
-computed: {},
-unmounted() {},
+    data() {
+        return {
+            noteTypes: {
+                txt: 'note-txt',
+                todos: 'note-todos',
+                video: 'note-video',
+                img: 'note-img'
+            },
+            currNote: null
+        };
+    },
+    created() {
+        const currNote = this.note
+        this.currNote = currNote
+    },
+    methods: {
+    },
+    computed: {
+
+    },
+    components: {
+        noteTxt,
+        noteImg,
+        noteVideo,
+        noteTodos,
+    },
+    unmounted() { },
 };

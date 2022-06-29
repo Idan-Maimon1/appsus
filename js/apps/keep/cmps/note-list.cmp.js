@@ -1,32 +1,20 @@
 import notePreview from './note-preview.cmp.js'
 
 export default {
+    props: ['notes'],
     template: `
  <section class="note-preview-container">
- <note-preview/>
- <note-preview/>
- <note-preview/>
- <note-preview/>
- <note-preview/>
- <note-preview/>
- <note-preview/>
- <note-preview/>
- <note-preview/>
- <note-preview/>
- <note-preview/>
- <note-preview/>
- <note-preview/>
- <note-preview/>
- <note-preview/>
- <!-- <car-preview :car="car" /> -->
+ <note-preview v-for="note in notes" :note="note"/>
  </section>
 `,
     data() {
         return {};
     },
-    created() { },
+    created() {
+    },
     methods: {},
-    computed: {},
+    computed: {
+    },
     components: {
         notePreview,
     },
