@@ -1,18 +1,18 @@
 export default {
-    template: `
+  template: `
      <header>appsus</header>
     <section class="maincontent">
         <section class="home-page-intro">
             <h2>
-                Appsus mail the best app for you , fdkgn nsfkgnslg nslkgn s gkrsgn</section>
+                Appsus, the best app for you to organize your life!</section>
             </h2>
     </section>
 `,
-    data() {
-        return {};
-    },
-    created() { },
-    methods: {},
-    computed: {},
-    unmounted() { },
-};
+  data() {
+    return {}
+  },
+  created() {},
+  methods: {},
+  computed: {},
+  unmounted() {},
+}
