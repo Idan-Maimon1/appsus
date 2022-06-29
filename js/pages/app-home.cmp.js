@@ -1,6 +1,9 @@
 export default {
   template: `
      <header>appsus</header>
+     <div class="nav-bar">
+      <router-link to="/keep">keep</router-link>
+     <router-link to="/mail">mail</router-link></div>
     <section class="maincontent">
         <section class="home-page-intro">
             <h2>
@@ -11,8 +14,8 @@ export default {
   data() {
     return {}
   },
-  created() {},
+  created() { },
   methods: {},
   computed: {},
-  unmounted() {},
+  unmounted() { },
 }
