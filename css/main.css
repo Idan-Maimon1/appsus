@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+.main-content{
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header{
+    background-color: rgb(53, 57, 61);
+    font-size: 4em;
+    color: aliceblue;
+}
+.home-page-intro{
+    background-color: aliceblue;
+    height: 50vh;
+    width: 50vw;
+    border-radius: 6vh;
+}
