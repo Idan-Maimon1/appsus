@@ -1,20 +1,20 @@
-// import noteApp from './views/note-app.cmp.js';
-// import emailApp from './views/email-app.cmp.js';
-import homePage from './views/home-page.cmp.js'
+// import emailApp from '';
+import keep from './apps/keep/pages/note-index.cmp.js'
+import appHome from './pages/app-home.cmp.js'
 
 const routes = [
   {
     path: '/',
-    component: homePage,
+    component: appHome,
   },
   // {
   //     path: '/email',
   //     component: emailApp
   // },
-  // {
-  //     path: '/notes',
-  //     component: noteApp
-  // },
+  {
+    path: '/notes',
+    component: keep,
+  },
 ]
 
 export const router = VueRouter.createRouter({

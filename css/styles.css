@@ -1,3 +1,5 @@
+
+
 @import 'setup/vars.css';
 @import 'setup/typography.css';
 
@@ -16,3 +18,7 @@
 @import 'components/user-msg.css';
 
 @import 'mq/mq.css';
+
+body{
+    margin: 0;
+}
