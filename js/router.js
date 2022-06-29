@@ -8,14 +8,14 @@ const routes = [
         path: '/',
         component: homePage
     },
-    {
-        path: '/email',
-        component: emailApp
-    },
-    {
-        path: '/notes',
-        component: noteApp
-    },
+    // {
+    //     path: '/email',
+    //     component: emailApp
+    // },
+    // {
+    //     path: '/notes',
+    //     component: noteApp
+    // },
 ]
 
 export const router = VueRouter.createRouter({
