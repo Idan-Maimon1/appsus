@@ -1,15 +1,15 @@
-// import { utilService } from './util-service.js'
-// import { storageService } from './async-storage-service.js'
+import { utilService } from '../../../services/util.service.js'
+import { storageService } from '../../../services/async-storage-service.js'
 
 const loggedinUser = {
-  email: 'user@appsus.com',
-  fullname: 'Mahatma Appsus',
+  email: 'yuvalevi@appsus.com',
+  fullname: 'Yuval Levy',
 }
 
 const gMails = [
   {
     id: 'e101',
-    subject: 'Miss you!',
+    subject: 'Miss you tons',
     body: 'Would love to catch up sometimes',
     isRead: false,
     sentAt: 1551133930594,
@@ -17,7 +17,7 @@ const gMails = [
   },
   {
     id: 'e102',
-    subject: 'Love you!',
+    subject: 'Love you',
     body: 'How are things going at your end?',
     isRead: true,
     sentAt: 1551133930978,
@@ -30,9 +30,9 @@ const MAILS_KEY = 'MAILS_DB'
 export const mailService = {
   query,
   get,
-  addReview,
-  getEmptyReview,
-  removeReview,
+  // addReview,
+  // getEmptyReview,
+  // removeReview,
 }
 
 _createMails()
