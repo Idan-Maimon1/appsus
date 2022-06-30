@@ -7,16 +7,16 @@ export default {
        <section class="mail-list">
             <ul class="mails-list">
               <hr/>
-                <li v-for="mail in mails" :key="mail.id" class="mail-preview-container" >
-                   <mail-preview :mail="mail" />
-                       <!-- <button @click="select(mail.id)">Open mail</button> -->
-                         <button class="delete-mail-btn" @click="remove(mail.id)">Delete</button>
-                         <router-link :to="'/mail/'+mail.id">Read</router-link>
-                    </div>
-                   <hr/>
-                </li>
-            </ul>
-               <div class="actions">        
+                <li v-for="mail in mails" :key="mail.id" >
+                  <mail-preview class="mail-preview-container"  :mail="mail" />
+                                        <!-- <button @click="select(mail.id)">Open mail</button> -->
+                       <!-- <section class="mail-tool"> -->
+                        <!-- </section> -->
+                        <hr/>
+                      </li>
+                    </ul>
+                    <!-- <div class="actions">        
+                 </div> -->
         </section>
 `,
   data() {

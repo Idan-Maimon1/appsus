@@ -1,5 +1,6 @@
 .mail-subject {
   font-weight: 700;
+  text-align-last: left;
 }
 
 /* .mail-preview-container {
@@ -7,12 +8,14 @@
   grid-template-columns: 
 } */
 
-.mail-preview {
+.mail-preview-container {
   display: grid;
-  grid-template-columns: 1fr 2fr 3fr 1fr;
+  grid-template-columns: 3fr 3fr 7fr 3fr 1fr 1fr;
   justify-content: center;
   align-items: center;
-  /* grid-template-rows: ; */
+  height: fit-content;
+  text-align: center;
+  text-decoration: none;
 }
 
 .mail-signs {
@@ -28,7 +31,6 @@ grid-column: 2;
 } */
 
 .mail-from {
-  margin: 3em;
   margin-right: 5em;
   font-weight: 700;
   grid-column: 2;
@@ -36,6 +38,7 @@ grid-column: 2;
 
 .mail-short-content {
   grid-column: 3;
+  text-align-last: left;
 }
 
 .mail-time {

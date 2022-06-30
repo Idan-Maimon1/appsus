@@ -1,7 +1,7 @@
 export default {
   props: ['mail'],
   template: `
-  <section class="mail-preview">
+    <section>
     <span class="mail-signs">
       <span class="mail-squeare">&#10065</span> 
       <span class="mail-star">&#10032;</span>
@@ -11,12 +11,15 @@ export default {
        <span class="mail-subject"> {{mail.subject}}</span> - 
        <span>{{mail.body}}</span></span> 
     <span class="mail-time">{{formatedTime}}</span>
+    <button class="delete-mail-btn" @click="remove(mail.id)">Delete</button>
+                  <router-link :to="'/mail/'+mail.id">Read</router-link>
+
   </section>
 `,
   data() {
     return {}
   },
-  created() {},
+  created() { },
   methods: {},
   computed: {
     formatedTime() {
