@@ -1,4 +1,5 @@
 import mailPreview from './mail-preview.cmp.js'
+// import mailDetails from '../pages/mail-details.cmp.js'
 
 export default {
   props: ['mails'],
@@ -8,16 +9,13 @@ export default {
               <hr/>
                 <li v-for="mail in mails" :key="mail.id" class="mail-preview-container" >
                    <mail-preview :mail="mail" />
-                          <!-- <button @click="remove(mail.id)">X</button> -->
-                       <!-- <button @click="select(mail.id)">Select</button> -->
-                         <!-- <router-link :to="'/mail/'+mail.id">Details</router-link> -->
+                       <!-- <button @click="select(mail.id)">Open mail</button> -->
+                         <router-link :to="'/mail/'+mail.id">Read</router-link>
                     </div>
                    <hr/>
                 </li>
             </ul>
-               <div class="actions">
-                
-                      
+               <div class="actions">        
         </section>
 `,
   data() {
@@ -29,12 +27,12 @@ export default {
   },
   created() {},
   methods: {
-    remove(id) {
-      this.$emit('remove', id)
-    },
-    select(mail) {
-      this.$emit('selected', mail)
-    },
+    // remove(id) {
+    //   this.$emit('remove', id)
+    // },
+    // select(mail) {
+    //   this.$emit('selected', mail)
+    // },
   },
   computed: {},
   unmounted() {},

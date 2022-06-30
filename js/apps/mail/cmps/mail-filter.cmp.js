@@ -1,8 +1,8 @@
 export default {
   template: `
-    <section class="book-filter">
+    <section class="mail-filter">
         <div class="filter-by-subject">
-            <input @input="filter" v-model="filterBy.subject" type="text" placeholder="search by subject">
+            <input @input="filter" v-model="filterBy.subject" v-model="filterBy.body" type="text" placeholder="search by subject">
         </div>
     </section>
     `,
