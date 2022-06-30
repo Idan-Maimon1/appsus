@@ -4,7 +4,7 @@ export default {
     props: ['notes'],
     template: `
  <section class="note-preview-container">
- <note-preview v-for="note in notes" :note="note"/>
+ <note-preview :key="note.id" v-for="note in notes" :note="note" @remove="remove"/>
  </section>
 `,
     data() {
@@ -12,7 +12,11 @@ export default {
     },
     created() {
     },
-    methods: {},
+    methods: {
+        remove(id) {
+            this.$emit('remove', id);
+        }
+    },
     computed: {
     },
     components: {

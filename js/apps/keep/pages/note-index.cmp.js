@@ -9,7 +9,7 @@ export default {
     <section class="keep-main-layout">
         <note-filter/>
         <note-details/>
-        <note-list :notes="notesForDisplay"/>
+        <note-list :notes="notesForDisplay" @remove="removeNote"/>
     </section>
     <!-- <note-filter @filtered="setFilter" /> -->
         <!-- <note-list :notes="notesForDisplay" @remove="removenote"  /> -->
@@ -22,7 +22,23 @@ export default {
     created() {
         noteService.query().then(notes => this.notes = notes)
     },
-    methods: {},
+    methods: {
+        removeNote(id) {
+            noteService.remove(id)
+                .then(() => {
+                    console.log(id,'Deleted successfully')
+                    const idx = this.notes.findIndex((note) => note.id === id)
+                    console.log('note[idx]: ',this.notes)
+                    this.notes.splice(idx, 1)
+                    console.log('this.notes: ',this.notes)
+                    //   showSuccessMsg('Deleted successfully')
+                })
+            // .catch(err => {
+            //     console.log(err)
+            //     showErrorMsg('Failed to remove')
+            // })
+        },
+    },
     computed: {
         notesForDisplay() {
             var notes = this.notes

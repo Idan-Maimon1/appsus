@@ -1,3 +1,17 @@
+@keyframes slideInFromTop {
+    0% {
+        transform: translatey(-18%);
+    }
+
+    100% {
+        transform: translatey(0);
+    }
+}
+
+.fade-out {
+    opacity: 0;
+}
+
 body {
     margin: 0px;
     box-sizing: border-box;
@@ -20,8 +34,8 @@ body {
     justify-content: center;
 }
 
-.note-details input {
-    border: 1.5px solid gray;
+.demo-input {
+    border: 0px;
     text-align: center;
     background-color: rgb(240, 247, 247);
     width: fit-content;
@@ -67,10 +81,17 @@ body {
 }
 
 .note-modificator {
+    animation: 100ms ease-out 0s 1 slideInFromTop;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     height: 40px;
     border-radius: 1vw;
+    transition: 700ms;
+}
+
+.note-modificator-placeholder {
+    height: 40px;
+    transition: 2s;
 }
 
 .note-modificator img {
@@ -106,6 +127,7 @@ body {
     justify-self: center;
     gap: 3px;
     padding: 3px;
+    animation: 300ms ease-out 0s 1 slideInFromTop;
 }
 
 .colors-pallete {
@@ -126,4 +148,27 @@ body {
 
 .colors-pallete h2 {
     display: none;
+}
+
+.add-note-form {
+    box-shadow: 0 1px 1px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    background-color: rgb(251, 253, 255);
+    border-radius: 10px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(12, 30px);
+    grid-template-rows: repeat(3, 30px);
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.add-note-form input {
+    grid-column: 1/ span 10;
+    height: fit-content;
+    box-shadow: none;
+    border: 0;
+    border-radius: 0;
+
 }
