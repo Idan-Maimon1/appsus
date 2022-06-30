@@ -10,6 +10,7 @@ export default {
                 <li v-for="mail in mails" :key="mail.id" class="mail-preview-container" >
                    <mail-preview :mail="mail" />
                        <!-- <button @click="select(mail.id)">Open mail</button> -->
+                         <button class="delete-mail-btn" @click="remove(mail.id)">Delete</button>
                          <router-link :to="'/mail/'+mail.id">Read</router-link>
                     </div>
                    <hr/>
@@ -27,9 +28,9 @@ export default {
   },
   created() {},
   methods: {
-    // remove(id) {
-    //   this.$emit('remove', id)
-    // },
+    remove(id) {
+      this.$emit('remove', id)
+    },
     // select(mail) {
     //   this.$emit('selected', mail)
     // },

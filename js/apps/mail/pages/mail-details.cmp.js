@@ -9,7 +9,7 @@ export default {
             <p>Content:{{mail.body}}</p>
             <p>Long Text:{{mail.longTxt}}</p>
              <div class="actions">
-                       <button @click="deleteMail(mail.id)">Delete</button>
+                       <button @click="remove(mail.id)">Delete</button>
                         <!-- <router-link :to="'/mail">Back</router-link> -->
                     </div>
         </section>
@@ -20,8 +20,8 @@ export default {
     }
   },
   methods: {
-    deleteMail(mailId) {
-      this.$emit('deleted', mailId)
+    remove(mailId) {
+      this.$emit('remove', mailId)
     },
   },
   created() {},

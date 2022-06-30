@@ -118,9 +118,6 @@ export const mailService = {
   query,
   get,
   remove,
-  // addReview,
-  // getEmptyReview,
-  // removeReview,
 }
 
 _createMails()
@@ -141,35 +138,11 @@ function _createMails() {
   return mails
 }
 
-function remove(bookId) {
-  const books = query()
-  const idx = books.findIndex((book) => book.id === bookId)
-  books.splice(idx, 1)
-  utilService.saveToStorage(bookS_KEY, books)
+function remove(mailId) {
+  const mails = query()
+  console.log(mails)
+  const idx = mails.findIndex((mail) => mail.id === mailId)
+  mails.splice(idx, 1)
+  console.log(mails)
+  utilService.saveToStorage(MAILS_KEY, mails)
 }
-
-// function getEmptyReview() {
-//   return {
-//     rederName: '',
-//     rate: '',
-//     readingDate: '',
-//     bookReview: '',
-//   }
-// }
-
-// function addReview(mailId, review) {
-//   review.id = utilService.makeId()
-//   return get(mailId).then((mail) => {
-//     if (!mail.reviews) mail.reviews = []
-//     mail.reviews.push(review)
-//     return storageService.put(MAILS_KEY, mail)
-//   })
-// }
-
-// function removeReview(mailId, reviewId) {
-//   return get(mailId).then((mail) => {
-//     const idx = mail.reviews.findIndex((review) => review.id === reviewId)
-//     mail.reviews.splice(idx, 1)
-//     return storageService.put(MAILS_KEY, mail)
-//   })
-// }

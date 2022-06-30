@@ -1,3 +1,7 @@
 .mails-list {
   list-style: none;
 }
+
+.delete-mail-btn {
+  margin: 2em;
+}
