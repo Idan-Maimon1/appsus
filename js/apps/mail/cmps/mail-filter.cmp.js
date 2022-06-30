@@ -1,8 +1,8 @@
 export default {
   template: `
-    <section class="book-filter">
+    <section class="mail-filter">
         <div class="filter-by-subject">
-            <input @input="filter" v-model="filterBy.subject" type="text" placeholder="search by subject">
+            <input class="search-mail" @input="filter" v-model="filterBy.subject" v-model="filterBy.body" v-model="filterBy.from" type="text" placeholder="search">
         </div>
     </section>
     `,
@@ -10,6 +10,8 @@ export default {
     return {
       filterBy: {
         subject: '',
+        body: '',
+        from: '',
       },
     }
   },
