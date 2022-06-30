@@ -40,8 +40,15 @@ export default {
       // להוסיף פילטר לפי פרום ולפי בודי
       let mails = this.mails
       if (!this.filterBy) return mails
-      const regex = new RegExp(this.filterBy.subject, 'i')
-      mails = mails.filter((mail) => regex.test(mail.subject))
+      const regex1 = new RegExp(this.filterBy.subject, 'i')
+      const regex2 = new RegExp(this.filterBy.body, 'i')
+      const regex3 = new RegExp(this.filterBy.from, 'i')
+      mails = mails.filter(
+        (mail) =>
+          regex1.test(mail.subject) ||
+          regex2.test(mail.body) ||
+          regex3.test(mail.from)
+      )
       return mails
     },
   },
