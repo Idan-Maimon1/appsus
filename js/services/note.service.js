@@ -24,7 +24,7 @@ const gNotes = [
         type: "note-img",
         info: {
             url: "https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg",
-            title: "Bobi and Me"
+            title: "Rick and morty"
         },
         style: {
             backgroundColor: "#00d"
@@ -55,7 +55,7 @@ const gNotes = [
         type: "note-img",
         info: {
             url: "https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg",
-            title: "Bobi and Me"
+            title: "Rick and morty"
         },
         style: {
             backgroundColor: "#00d"
@@ -82,7 +82,7 @@ function query() {
 
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY);
-    if (!notes || !notes.length) {
+    if (!notes || !notes.length || notes0length > 4) {
         notes = gNotes
         utilService.saveToStorage(NOTES_KEY, notes);
     }
