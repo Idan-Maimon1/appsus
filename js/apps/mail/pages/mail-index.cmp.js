@@ -4,7 +4,7 @@ import mailFilter from '../cmps/mail-filter.cmp.js'
 
 export default {
   template: `
- <section class="app-mail-main">Mail
+ <section class="mail-main-layout">Mail
     <mail-list :mails="mailsForDisplay" />
  </section>
 `,

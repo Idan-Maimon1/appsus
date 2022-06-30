@@ -8,8 +8,16 @@ export default {
               <hr/>
                 <li v-for="mail in mails" :key="mail.id" class="mail-preview-container" >
                    <mail-preview :mail="mail" />
+                          <!-- <button @click="remove(mail.id)">X</button> -->
+                       <!-- <button @click="select(mail.id)">Select</button> -->
+                         <!-- <router-link :to="'/mail/'+mail.id">Details</router-link> -->
+                    </div>
+                   <hr/>
                 </li>
             </ul>
+               <div class="actions">
+                
+                      
         </section>
 `,
   data() {
@@ -17,9 +25,17 @@ export default {
   },
   components: {
     mailPreview,
+    // mailDetails,
   },
   created() {},
-  methods: {},
+  methods: {
+    remove(id) {
+      this.$emit('remove', id)
+    },
+    select(mail) {
+      this.$emit('selected', mail)
+    },
+  },
   computed: {},
   unmounted() {},
 }

@@ -1,3 +1,49 @@
-.subject {
+.mail-subject {
   font-weight: 700;
+}
+
+/* .mail-preview-container {
+  display: grid;
+  grid-template-columns: 
+} */
+
+.mail-preview {
+  display: grid;
+  grid-template-columns: 1fr 2fr 3fr 1fr;
+  justify-content: center;
+  align-items: center;
+  /* grid-template-rows: ; */
+}
+
+.mail-signs {
+  grid-column: 1;
+}
+
+/* .mail-squeare {
+  grid-column: 1;
+}
+
+.mail-star{
+grid-column: 2;
+} */
+
+.mail-from {
+  margin: 3em;
+  margin-right: 5em;
+  font-weight: 700;
+  grid-column: 2;
+}
+
+.mail-short-content {
+  grid-column: 3;
+}
+
+.mail-time {
+  margin: 1em;
+  grid-column: 4;
+}
+
+.mail-star,
+.mail-squeare {
+  margin: 0.5em;
 }
