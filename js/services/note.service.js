@@ -82,7 +82,7 @@ function query() {
 
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY);
-    if (!notes || !notes.length || notes.length < 4) {
+    if (!notes || !notes.length) {
         notes = gNotes
         utilService.saveToStorage(NOTES_KEY, notes);
     }
