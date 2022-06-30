@@ -1,7 +1,9 @@
+import noteModificator from './note-modificator.cmp.js'
 import noteTxt from './note-types/note-txt.cmp.js'
 import noteImg from './note-types/note-img.cmp.js'
 import noteVideo from './note-types/note-video.cmp.js'
 import noteTodos from './note-types/note-todos.cmp.js'
+import notePalette from './note-palette.cmp.js'
 
 export default {
     props: ['note'],
@@ -19,6 +21,8 @@ export default {
         <div v-else-if="note.type === noteTypes.img">
             <note-img :currNote='currNote'/>
         </div>
+        <note-palette calss="z-index99"/>
+        <note-modificator class="note-modificator"/>
    </div>
 `,
     data() {
@@ -46,6 +50,8 @@ export default {
         noteImg,
         noteVideo,
         noteTodos,
+        noteModificator,
+        notePalette,
     },
     unmounted() { },
 };

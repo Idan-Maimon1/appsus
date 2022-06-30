@@ -1,7 +1,7 @@
 export default {
     props: ['currNote'],
     template: `
- <section>
+ <section class="note-inner-content">
     <h1>{{this.currNote.info.title}}</h1>
  <img :src="this.currNote.info.url" alt="hhh">
  </section>
@@ -11,7 +11,6 @@ export default {
         return {};
     },
     created() {
-        console.log('currNote: ',this.currNote)
     },
     methods: {},
     computed: {},

@@ -1,6 +1,6 @@
+import appHome from './pages/app-home.cmp.js'
 import mail from './apps/mail/pages/mail-index.cmp.js'
 import keep from './apps/keep/pages/note-index.cmp.js'
-import appHome from './pages/app-home.cmp.js'
 
 const routes = [
   {
