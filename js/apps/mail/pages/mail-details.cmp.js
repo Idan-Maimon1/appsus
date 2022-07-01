@@ -4,10 +4,9 @@ export default {
   props: ['mail'],
   template: `
         <section v-if="mail"  class="main mail-details">
-            <h4>Mail details</h4>
-            <p>Subject:{{mail.subject}}</p>
-            <p>Content:{{mail.body}}</p>
-            <p>Long Text:{{mail.longTxt}}</p>
+            <p class="mail-subject-detail">{{mail.subject}}</p>
+            <p>From:<span class="mail-from-name">{{mail.from}} </span> <span class="mail-from-mail"> {{mail.to}} </span></p>
+            <p>{{mail.body}}</p>
              <div class="actions">
                        <button @click="remove(mail.id)">Delete</button>
                         <!-- <router-link :to="'/mail">Back</router-link> -->

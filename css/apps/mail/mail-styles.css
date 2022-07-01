@@ -2,4 +2,6 @@
 @import './mail-list.css';
 @import './mail-preview.css';
 @import './mail-filter.css';
-@import './mail-edit.css';
+@import './mail-add.css';
+@import './mail-details.css';
+@import './mail-folder-list.css';

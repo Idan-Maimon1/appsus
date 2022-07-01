@@ -2,12 +2,14 @@ import { mailService } from '../services/mail-service.js'
 import mailList from '../cmps/mail-list.cmp.js'
 import mailFilter from '../cmps/mail-filter.cmp.js'
 import mailDetails from './mail-details.cmp.js'
+import mailFolderList from '../cmps/mail-folder-list.cmp.js'
 
 export default {
   template: `
  <section class="mail-main-layout">
  <mail-filter @filtered="filterMail"/>
-  <router-link to="/mail/edit">Compose Mail</router-link>
+  <router-link to="/mail/add">Compose Mail</router-link>
+  <mail-folder-list/>
     <mail-list :mails="mailsForDisplay" @remove="remove" />
      <mail-details v-if="selectedMail" @close="selectedMail = null" :mail="selectedMail" @remove="remove"/>
  </section>
@@ -16,6 +18,7 @@ export default {
     mailList,
     mailFilter,
     mailDetails,
+    mailFolderList,
   },
   data() {
     return {
