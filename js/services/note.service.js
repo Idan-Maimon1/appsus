@@ -19,6 +19,9 @@ const gNotes = [
         info: {
             title: "lorem lorem",
             txt: "lorem ipsum!"
+        },
+        style: {
+            backgroundColor: "var(--kp2)"
         }
     },
     {
@@ -30,7 +33,7 @@ const gNotes = [
             title: "Rick and morty"
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "var(--kp4)"
         }
     },
     {
@@ -43,6 +46,9 @@ const gNotes = [
                 { txt: "first thing", doneAt: null },
                 { txt: "second thing", doneAt: 187111111 }
             ]
+        },
+        style: {
+            backgroundColor: "var(--kp12)"
         }
     }
 ];

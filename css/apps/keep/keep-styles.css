@@ -8,6 +8,28 @@
     }
 }
 
+@keyframes formAnimation {
+    0% {
+        transform: translatey(-5.5%);
+    }
+
+    100% {
+        transform: translatey(0);
+    }
+}
+
+@keyframes demoFormAnimation {
+    0% {
+        height: 60px;
+        transform: translatey(+25%);
+    }
+
+    100% {
+        height: 6vh;
+        transform: translatey(0);
+    }
+}
+
 .fade-out {
     opacity: 0;
 }
@@ -35,14 +57,16 @@ body {
 }
 
 .demo-input {
-    border: 0px;
-    text-align: center;
-    background-color: rgb(240, 247, 247);
-    width: fit-content;
-    min-width: 65vw;
-    height: 6vh;
-    border-radius: 1vw;
     box-shadow: 0 1px 1px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    text-align: center;
+    width: fit-content;
+    font-size: 0.9rem;
+    height: 6vh;
+    width: 420px;
+    border: 0px;
+    outline: 0px;
+    border-radius: 7px;
+    /* animation: 200ms ease-out 0s 1 demoFormAnimation; */
 }
 
 .note-preview-container {
@@ -60,7 +84,6 @@ body {
     height: fit-content;
     min-width: 150px;
     max-width: 250px;
-    background-color: rgb(242, 139, 130);
     border-radius: 1.5vw;
     display: grid;
     text-align: center;
@@ -73,11 +96,7 @@ body {
 
 .note-preview img {
     width: 175px;
-    border-radius: 1vw;
-}
-
-.note-preview:nth-child(even) {
-    background-color: #e8eaed;
+    border-radius: 1.5vw;
 }
 
 .note-modificator {
@@ -86,7 +105,7 @@ body {
     grid-template-columns: repeat(5, 1fr);
     height: 40px;
     border-radius: 1vw;
-    transition: 700ms;
+    transition: 640ms;
 }
 
 .note-modificator-placeholder {
@@ -100,12 +119,12 @@ body {
     width: fit-content;
     height: 25px;
     margin-left: 1px;
-    transition: 300ms;
+    transition: 100ms;
 }
 
 .note-modificator img:hover {
-    background-color: #e8eaed;
-    transition: 300ms;
+    background-color: #f0f0f0;
+    transition: 100ms;
     cursor: pointer;
 }
 
@@ -127,7 +146,7 @@ body {
     justify-self: center;
     gap: 3px;
     padding: 3px;
-    animation: 300ms ease-out 0s 1 slideInFromTop;
+    animation: 500ms ease-out 0s 1 slideInFromTop;
 }
 
 .colors-pallete {
@@ -156,19 +175,110 @@ body {
     border-radius: 10px;
     padding: 10px;
     display: grid;
-    grid-template-columns: repeat(12, 30px);
-    grid-template-rows: repeat(3, 30px);
+    grid-template-columns: repeat(12, 35px);
+    grid-template-rows: repeat(3, 35px);
     justify-content: center;
     align-items: center;
     margin-top: 30px;
     margin-bottom: 40px;
+    row-gap: 15px;
+    /* animation: 300ms ease-out 0s 1 formAnimation; */
 }
 
 .add-note-form input {
-    grid-column: 1/ span 10;
     height: fit-content;
     box-shadow: none;
-    border: 0;
+    outline: 0px;
+    border: 0px;
     border-radius: 0;
+}
 
+.form-title {
+    grid-column: 1 /12;
+    font-size: 1.1rem;
+}
+
+.form-txt-content {
+    grid-column: 1/13;
+    grid-row: 2;
+    font-size: 0.9rem;
+    color: rgb(131, 126, 126);
+}
+
+.icon-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-container:hover {
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+.new-note-pin {
+    grid-column: 12;
+}
+
+.new-note-pin img {
+    width: 60%;
+}
+
+.new-note-palette {
+    grid-column: 1;
+}
+
+.new-note-palette img {
+    width: 74%;
+}
+
+.new-note-text img {
+    justify-self: center;
+    width: 80%;
+}
+
+.new-note-img img {
+    width: 87%;
+    height: 100%;
+    justify-self: center;
+}
+
+.new-note-video img {
+    height: 88%;
+    margin-top: 3px;
+    justify-self: center;
+}
+
+.new-note-todos img {
+    height: 75%;
+    align-self: center;
+    justify-self: center;
+}
+
+.add-note-form button {
+    cursor: pointer;
+}
+
+.add-new-note {
+    background-color: transparent;
+    grid-column: 9/span 2;
+    border: 0;
+    height: 80%;
+    width: 90%;
+    border-radius: 4px;
+    transition: 500ms;
+    background-color: var(--kblue);
+    color: white;
+}
+
+.close-new-note-form {
+    background-color: transparent;
+    grid-column: 11/span 2;
+    border: 0;
+    height: 80%;
+    width: 90%;
+    transition: 300ms;
 }
