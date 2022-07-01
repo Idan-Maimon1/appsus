@@ -2,6 +2,7 @@ import appHome from './pages/app-home.cmp.js'
 import mail from './apps/mail/pages/mail-index.cmp.js'
 import keep from './apps/keep/pages/note-index.cmp.js'
 import mailDetails from './apps/mail/pages/mail-details.cmp.js'
+import mailEdit from './apps/mail/pages/mail-edit.cmp.js'
 
 const routes = [
   {
@@ -19,6 +20,10 @@ const routes = [
   {
     path: '/mail/:mailId',
     component: mailDetails,
+  },
+  {
+    path: '/mail/edit',
+    component: mailEdit,
   },
 ]
 

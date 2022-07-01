@@ -9,6 +9,7 @@ export default {
               <hr/>
                 <li v-for="mail in mails" :key="mail.id" >
                   <mail-preview class="mail-preview-container"  :mail="mail" />
+                   <button @click="remove(mail.id)">X</button>
                                         <!-- <button @click="select(mail.id)">Open mail</button> -->
                        <!-- <section class="mail-tool"> -->
                         <!-- </section> -->

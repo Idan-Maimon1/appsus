@@ -20,8 +20,8 @@ export default {
     }
   },
   methods: {
-    remove(mailId) {
-      this.$emit('remove', mailId)
+    remove(id) {
+      this.$emit('remove', id)
     },
   },
   created() {},

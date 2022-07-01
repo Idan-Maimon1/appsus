@@ -7,6 +7,7 @@ export default {
   template: `
  <section class="mail-main-layout">
  <mail-filter @filtered="filterMail"/>
+  <router-link to="/mail/edit">Compose Mail</router-link>
     <mail-list :mails="mailsForDisplay" @remove="remove" />
      <mail-details v-if="selectedMail" @close="selectedMail = null" :mail="selectedMail" @remove="remove"/>
  </section>

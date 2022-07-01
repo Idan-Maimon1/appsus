@@ -118,6 +118,9 @@ export const mailService = {
   query,
   get,
   remove,
+  save,
+  getEmptyMail,
+  // getNextMailId,
 }
 
 _createMails()
@@ -138,11 +141,39 @@ function _createMails() {
   return mails
 }
 
+// function remove(mailId) {
+//   const mails = query()
+//   console.log(mails)
+//   const idx = mails.findIndex((mail) => mail.id === mailId)
+//   mails.splice(idx, 1)
+//   utilService.saveToStorage(MAILS_KEY, mails)
+// }
+
 function remove(mailId) {
-  const mails = query()
-  console.log(mails)
-  const idx = mails.findIndex((mail) => mail.id === mailId)
-  mails.splice(idx, 1)
-  console.log(mails)
-  utilService.saveToStorage(MAILS_KEY, mails)
+  // return Promise.reject('Big Error Badd')
+  return storageService.remove(MAILS_KEY, mailId)
+}
+
+function save(mail) {
+  if (mail.id) return storageService.put(MAILS_KEY, mail)
+  else return storageService.post(MAILS_KEY, mail)
+}
+
+// function getNextMailId(mailId) {
+//   return storageService.query(MAILS_KEY).then((mails) => {
+//     const idx = mails.findIndex((mail) => mail.id === mailId)
+//     return idx < mails.length - 1 ? mails[idx + 1].id : mails[0].id
+//   })
+// }
+
+function getEmptyMail() {
+  return {
+    id: utilService.makeId(),
+    from: loggedinUser.fullname,
+    subject: '',
+    body: '',
+    isRead: false,
+    sentAt: Date.now(),
+    to: loggedinUser.email,
+  }
 }
