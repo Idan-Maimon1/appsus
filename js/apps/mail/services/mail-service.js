@@ -14,7 +14,7 @@ const gMails = [
     body: 'Would love to catch up sometimes. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
     isRead: false,
     sentAt: 1656574550000,
-    to: 'momo@appsus.com',
+    to: 'yuvalevi@appsus.com',
   },
   {
     id: 'e102',
@@ -23,7 +23,7 @@ const gMails = [
     body: 'How are things going at your end? Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
     isRead: true,
     sentAt: 1647761750000,
-    to: 'tomy@appsus.com',
+    to: 'yuvalevi@appsus.com',
   },
   {
     id: 'e103',
@@ -32,7 +32,7 @@ const gMails = [
     body: 'just wanted to know how are you feeling? I thought about you today Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
     isRead: false,
     sentAt: 1650008150000,
-    to: 'momo@appsus.com',
+    to: 'yuvalevi@appsus.com',
   },
   {
     id: 'e104',
@@ -59,7 +59,7 @@ const gMails = [
     body: 'Hi, I have something personal to tell you, can I count on you not to tell anyone? Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
     isRead: true,
     sentAt: 1551133939631,
-    to: 'tomy@appsus.com',
+    to: 'yuvalevi@appsus.com',
   },
   {
     id: 'e107',
@@ -68,7 +68,7 @@ const gMails = [
     body: 'It was so nice seeing you last weekend, we must meet again and spend time together Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
     isRead: false,
     sentAt: 1634456150000,
-    to: 'momo@appsus.com',
+    to: 'yuvalevi@appsus.com',
   },
   {
     id: 'e108',
@@ -78,7 +78,7 @@ const gMails = [
 
     isRead: true,
     sentAt: 1614065750000,
-    to: 'tomy@appsus.com',
+    to: 'yuvalevi@appsus.com',
   },
   {
     id: 'e109',
@@ -96,7 +96,7 @@ const gMails = [
     body: 'What to you think of going to a trip together for a fwe days? Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
     isRead: true,
     sentAt: 1628321750000,
-    to: 'tomy@appsus.com',
+    to: 'yuvalevi@appsus.com',
   },
 ]
 
