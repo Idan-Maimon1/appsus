@@ -10,3 +10,11 @@
   font-size: 1.2em;
   font-weight: 700;
 }
+
+.main-mail-details {
+  max-width: 70%;
+  margin: 10em;
+  border: 0.5px solid grey;
+  padding: 1em;
+  border-radius: 6px;
+}

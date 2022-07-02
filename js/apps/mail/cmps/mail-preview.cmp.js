@@ -17,11 +17,13 @@ export default {
      </router-link>     
      <span class="mail-time">{{formatedTime}}</span>
      <button @click="remove(mail.id)"><i class="fa-solid fa-trash-can"></i></button>
-     <button class="is-read-btn" @click="toggleIsRead(mail.id)"><i class="fa-solid fa-envelope-open"></i></button>
+     <button class="is-read-btn" @click="toggleIsRead(mail.id)"><i v-if='!mail.isRead' class="fa-solid fa-envelope-open"></i>
+  <i v-else class="fa-solid fa-envelope"></i> </button>
        <!-- <span>{{mail.body}}</span></span>  -->
     <!-- <button class="delete-mail-btn" @click="remove(mail.id)">Delete</button> -->
     <!-- <button class="is-read-btn" @click="toggleIsRead()">Is Read</button> -->
       
+   
 
   </section>
    
