@@ -20,3 +20,9 @@
 body {
   margin: 0;
 }
+.ffff{
+  background-color: aquamarine;
+}
+.ffff .mail-subject,.ffff .mail-from{
+  font-weight: 700;
+}

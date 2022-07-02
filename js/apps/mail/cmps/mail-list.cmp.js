@@ -8,7 +8,7 @@ export default {
             <ul class="mails-list">
               <hr/>
                 <li v-for="mail in mails" :key="mail.id" >
-                  <mail-preview class="mail-preview-container"  :mail="mail" />
+                  <mail-preview class="mail-preview-container" :class="mail.isRead ? '' : 'ffff'" :mail="mail" />
                    <button @click="remove(mail.id)">X</button>
                     <button class="is-read-btn" @click="toggleIsRead(mail.id)">Is Read</button>
                                         <!-- <button @click="select(mail.id)">Open mail</button> -->

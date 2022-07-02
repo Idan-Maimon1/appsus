@@ -27,7 +27,7 @@ grid-column: 2;
 
 .mail-from {
   margin-right: 5em;
-  font-weight: 700;
+  /* font-weight: 700; */
   grid-column: 2;
 }
 
@@ -59,3 +59,4 @@ grid-column: 2;
 .bold-content {
   font-weight: 700;
 }
+

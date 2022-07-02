@@ -15,7 +15,8 @@ export default {
              v-model="newNote.info.title" 
              placeholder="Title"
              type="text" class="form-title">
-            <div @click="this.newNote.isPinned = !this.newNote.isPinned" :class="['newNote.isPinned' ? 'pinned' : '' ,'icon-container','new-note-pin']" >
+            <div @click="this.newNote.isPinned = !this.newNote.isPinned" 
+            :class="['newNote.isPinned' ? 'pinned' : '' ,'icon-container','new-note-pin']" >
                 <img src="img/keep-imgs/icons/pin.svg" alt="">
             </div>
             <input autofocus type="text"
