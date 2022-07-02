@@ -88,7 +88,7 @@ body {
   z-index: 99;
   font-size: 1.5rem;
   text-decoration: none;
-  color: rgba(225, 211, 211, 0);
+  color: rgb(32, 29, 29);
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
 }
