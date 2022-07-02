@@ -6,7 +6,7 @@ export default {
     <section>
             <img src="img/keep-imgs/icons/colors.svg" 
             @click="togglePalette">
-            <img src="img/keep-imgs/icons/edit.svg" alt="">
+            <img @click="toggleEditNote" src="img/keep-imgs/icons/edit.svg" alt="">
             <img src="img/keep-imgs/icons/tag.svg" alt="">
             <img @click="dupelicateNote(currNote)" class="dupe-note" src="img/keep-imgs/icons/copy.svg" alt="">
             <img src="img/keep-imgs/icons/trash-can-7.svg"
@@ -20,6 +20,9 @@ export default {
         // this.unsubscribe = eventBus.on('dupelicateNote', this.currNote)
     },
     methods: {
+        toggleEditNote(){
+            this.$emit('toggleEditNote')
+        },
         remove(id) {
             this.$emit('remove', id);
         },

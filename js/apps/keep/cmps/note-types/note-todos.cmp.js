@@ -15,7 +15,6 @@ export default {
     },
     created() {
         this.todos = this.currNote.info.txt.split(',')
-        console.log('this.todos: ', this.todos)
     },
     methods: {},
     computed: {},

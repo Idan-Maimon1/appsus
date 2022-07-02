@@ -4,6 +4,9 @@ import noteImg from './note-types/note-img.cmp.js'
 import noteVideo from './note-types/note-video.cmp.js'
 import noteTodos from './note-types/note-todos.cmp.js'
 import notePalette from './note-palette.cmp.js'
+import noteDetails from '../pages/note-details.cmp.js';
+import { eventBus } from "../../../services/eventBus-service.js"
+
 
 export default {
     props: ['note', 'index'],
@@ -14,6 +17,8 @@ export default {
       @mouseleave="hideMOdBar"
       @mouseleave="isHoverNow = false"
       >
+          <img src="img/keep-imgs/icons/pin.svg" 
+          @click="togglePinned" class="note-pin-status">
         <div v-if="note.type === noteTypes.txt">
             <note-txt :currNote='currNote'/>
          </div>
@@ -28,13 +33,12 @@ export default {
         </div>
         <note-palette v-if="isPickColorClicked" 
             @changeColor="changeColor"/>
-         <note-modificator :class="(isModBarOn || isPickColorClicked) ? '' : 'fade-out'"       
+         <note-modificator @toggleEditNote="toggleEditNote"
+          :class="(isModBarOn || isPickColorClicked) ? '' : 'fade-out'"       
              :currNote='currNote' 
              class="note-modificator"
               @remove="remove"
               @togglePalette="togglePalette"/>
-        <!-- <div v-else 
-             class="note-modificator-placeholder"></div> -->
    </div>
 `,
     data() {
@@ -56,6 +60,9 @@ export default {
         this.currNote = currNote
     },
     methods: {
+        toggleEditNote() {
+            eventBus.emit('editNote', this.note)
+        },
         remove(id) {
             this.$emit('remove', id);
         },
@@ -71,7 +78,7 @@ export default {
         changeColor(color) {
             const updatedNote = this.note
             updatedNote.style.backgroundColor = color
-            this.$emit('changeColor',updatedNote)
+            this.$emit('changeColor', updatedNote)
         }
     },
     computed: {
@@ -86,6 +93,7 @@ export default {
         noteTodos,
         noteModificator,
         notePalette,
+        noteDetails,
     },
     unmounted() { },
 };

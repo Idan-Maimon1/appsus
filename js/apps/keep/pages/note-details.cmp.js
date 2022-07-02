@@ -3,6 +3,7 @@ import { noteService } from '../../../services/note.service.js'
 import { eventBus } from "../../../services/eventBus-service.js"
 
 export default {
+    props: ['isEditable', 'currNote'],
     template: `
     <section class="note-details">
         <input v-if="!isClicked" type="text" 
@@ -16,7 +17,7 @@ export default {
              placeholder="Title"
              type="text" class="form-title">
             <div @click="this.newNote.isPinned = !this.newNote.isPinned" 
-            :class="['newNote.isPinned' ? 'pinned' : '' ,'icon-container','new-note-pin']" >
+            :class="[this.newNote.isPinned ? 'pinned' : '' ,'icon-container','new-note-pin']" >
                 <img src="img/keep-imgs/icons/pin.svg" alt="">
             </div>
             <input autofocus type="text"
@@ -50,7 +51,7 @@ export default {
             </div>
             <button @click="postNewNote" class="add-new-note">Add</button>
             <button class="close-new-note-form" 
-            @click="isClicked = !isClicked">close</button>
+            @click="discardChanges">close</button>
         </form>
     </section>
         `,
@@ -58,10 +59,11 @@ export default {
         return {
             isClicked: false,
             isPaletteOn: false,
+            isExistingNote: false,
             newNote: {
                 id: noteService.makeId(),
                 type: "note-txt",
-                isPinned: true,
+                isPinned: false,
                 info: {
                     title: "",
                     txt: "",
@@ -71,13 +73,36 @@ export default {
                 style: {
                     backgroundColor: "var(--kp4)"
                 }
-            }
+            },
+            backupNote: null,
         };
     },
     created() {
-        this.resetNewNoteParams()
+        if (this.isEditable) {
+            this.isClicked = true
+            this.isExistingNote = true
+            this.newNote = this.currNote
+            let backupNote = JSON.parse(JSON.stringify(this.newNote))
+            this.backupNote = backupNote
+        }
+        if (!this.isExistingNote) {
+        }
     },
     methods: {
+        discardChanges(){
+            if (this.isExistingNote) {
+            this.newNote.info = this.backupNote.info
+            this.newNote.type = this.backupNote.type
+            this.newNote.isPinned = this.backupNote.isPinned
+            this.newNote.style = this.backupNote.style
+            }
+            this.isClicked = !this.isClicked
+        },
+        editNote(currNote) {
+            if (!this.isEditable) return
+            this.newNote = currNote
+            // this.isClicked = true
+        },
         resetNewNoteParams() {
             this.newNote = {
                 id: noteService.makeId(),
@@ -99,9 +124,14 @@ export default {
             this.newNote.style.backgroundColor = color
         },
         postNewNote() {
+            if (!this.isExistingNote) {
+                eventBus.emit('postNote', this.newNote)
+                this.resetNewNoteParams()
+            }
+            else {
+                eventBus.emit('updateNote', this.newNote)
+            }
             this.isClicked = false
-            eventBus.emit('postNote', this.newNote)
-            this.resetNewNoteParams()
         }
     },
     computed: {
@@ -126,6 +156,13 @@ export default {
     },
     components: {
         notePalette,
+    },
+    watch: {
+        isClicked(newVal, oldVal) {
+            if (!newVal && this.isExistingNote) {
+                this.$emit('toggleEditable')
+            }
+        },
     },
     unmounted() { },
 };

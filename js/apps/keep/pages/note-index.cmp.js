@@ -9,24 +9,41 @@ export default {
     template: `
     <section class="keep-main-layout">
         <note-filter/>
-        <note-details/>
+        <note-details :isEditable="demoFalse" :key="newNote" />
         <note-list :notes="notesForDisplay"
-         @remove="removeNote"
-         @changeColor="changeNoteColor"/>
+        @remove="removeNote"
+        @changeColor="updateNote"/>
+        <note-details :isEditable="isEditable"
+         :currNote="currEditedNote" :key="editNote"
+         v-if="isEditable" class="edit-curr-note"
+         @toggleEditable="isEditable = false"/>
     </section>
     <!-- <note-filter @filtered="setFilter" /> -->
         <!-- <note-list :notes="notesForDisplay" @remove="removenote"  /> -->
 `,
     data() {
         return {
-            notes: null
+            notes: null,
+            isEditable: false,
+            demoFalse: false,
+            currEditedNote: null,
         }
     },
     created() {
-        noteService.query().then(notes => this.notes = notes)
+        noteService.query()
+        .then(notes => notes.sort(function(x,y){
+            return (x === y)? 0 : x? -1 : 1;
+        }))
+        .then(notes => this.notes = notes)
         this.unsubscribe = eventBus.on('postNote', this.postNote)
+        this.unsubscribe = eventBus.on('updateNote', this.updateNote)
+        this.unsubscribe = eventBus.on('editNote', this.editNote)
     },
     methods: {
+        editNote(note) {
+            this.isEditable = true
+            this.currEditedNote = note
+        },
         removeNote(id) {
             noteService.remove(id)
                 .then(() => {
@@ -34,7 +51,7 @@ export default {
                     this.notes.splice(idx, 1)
                 })
         },
-        changeNoteColor(updatedNote) {
+        updateNote(updatedNote) {
             noteService.updateNote(updatedNote)
         },
         postNote(note) {
@@ -42,8 +59,7 @@ export default {
             newNote.id = noteService.makeId()
             noteService.post(newNote)
                 .then((updatedNote) => this.notes.unshift(updatedNote))
-        }
-
+        },
     },
     computed: {
         notesForDisplay() {

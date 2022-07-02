@@ -49,7 +49,7 @@ body {
     transition: red 4s;
 }
 
-.note-details {
+.keep-main-layout>.note-details {
     min-height: 17vh;
     height: fit-content;
     width: 100vw;
@@ -213,9 +213,13 @@ body {
 .form-txt-content {
     grid-column: 1/13;
     grid-row: 2;
-    font-size: 0.9rem;
-    color: rgb(131, 126, 126);
+    font-size: 1.3rem;
 }
+
+/* .white-txt {
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.5px black
+} */
 
 .icon-container {
     height: 100%;
@@ -223,13 +227,34 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 200ms;
 }
 
-.icon-container:hover,.pinned {
+.icon-container:hover:not(:first-of-type) {
     background-color: #f0f0f0;
     border-radius: 10px;
     cursor: pointer;
+    transition: 200ms;
 }
+
+.icon-container:first-of-type:hover:not(.pinned) {
+    background-color: rgba(255, 255, 255, 0.595);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.pinned {
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    transition: 350ms;
+}
+
+.pinned:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
 .new-note-pin {
     grid-column: 12;
 }
@@ -299,4 +324,18 @@ body {
 
 .new-note-color-palette {
     z-index: 99;
+}
+
+.edit-curr-note>* {
+    position: fixed;
+    top: 30%;
+    margin: 0 auto;
+    z-index: 99;
+}
+
+.note-pin-status {
+    height: 30px;
+    margin: 2px;
+    margin-top: 10px;
+    margin-left: 35%;
 }
