@@ -80,19 +80,44 @@ body {
 .nav:hover {
   cursor: pointer;
 }
-.keep,.mail{
+
+.keep,
+.mail {
   position: fixed;
   top: 3vw;
   z-index: 99;
   font-size: 1.5rem;
   text-decoration: none;
-  color: rgb(20, 18, 18);
+  color: rgba(225, 211, 211, 0);
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
 }
+
 .keep {
   right: 120px;
 }
+
 .mail {
   right: 240px;
+}
+
+.main-header {
+  height: 15vh;
+  background-color: rgb(241, 243, 252);
+  display: flex;
+  align-items: center;
+  
+}
+.main-header>*>*{
+  color: black;
+  margin: auto 0;
+  position:absolute;
+}
+.main-header div {
+  margin-left: 20px;
+}
+
+.logo {
+  font-size: 2rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

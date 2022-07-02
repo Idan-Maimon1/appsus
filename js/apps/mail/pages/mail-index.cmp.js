@@ -3,11 +3,13 @@ import mailList from '../cmps/mail-list.cmp.js'
 import mailFilter from '../cmps/mail-filter.cmp.js'
 import mailDetails from './mail-details.cmp.js'
 import { eventBus } from "../../../services/eventBus-service.js"
+import appHeader from '../../../main-cmps/app-header.cmp.js';
 
 // import mailFolderList from '../cmps/mail-folder-list.cmp.js'
 
 export default {
   template: `
+  <app-header></app-header>
  <section class="mail-main-layout">
    <!-- <div class="main-mail-container"> -->
      <div class="side-menu">
@@ -33,6 +35,7 @@ export default {
     mailList,
     mailFilter,
     mailDetails,
+    appHeader,
     // mailFolderList,
   },
   data() {

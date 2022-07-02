@@ -3,10 +3,11 @@ import noteFilter from '../cmps/note-filter.cmp.js'
 import noteDetails from './note-details.cmp.js';
 import { noteService } from '../services/note.service.js'
 import { eventBus } from "../../../services/eventBus-service.js"
-
+import appHeader from '../../../main-cmps/app-header.cmp.js';
 
 export default {
     template: `
+    <app-header></app-header>
     <section class="keep-main-layout">
         <note-filter/>
         <note-details :isEditable="demoFalse" 
@@ -79,6 +80,7 @@ export default {
         noteFilter,
         noteList,
         noteDetails,
+        appHeader,
     }, destroyed() {
 
         this.unsubscribe()
