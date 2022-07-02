@@ -7,10 +7,11 @@ import mailDetails from './mail-details.cmp.js'
 export default {
   template: `
  <section class="mail-main-layout">
- <mail-filter @filtered="filterMail"/>
-  <router-link to="/mail/add">Compose Mail</router-link>
+ <mail-filter @filtered="filterMail" @sorted="sortMails" class="filter-mail"/>
+  <router-link to="/mail/add" class="compose-btn">Compose</router-link>
+
   <!-- <mail-folder-list/> -->
-    <mail-list :mails="mailsForDisplay" @remove="remove" />
+    <mail-list :mails="mailsForDisplay" @remove="remove" @toggleIsRead= toggleIsRead />
      <mail-details v-if="selectedMail" @close="selectedMail = null" :mail="selectedMail" @remove="remove"/>
  </section>
 `,
@@ -40,6 +41,10 @@ export default {
       console.log(filterBy)
       this.filterBy = filterBy
     },
+    toggleIsRead(id) {
+      console.log('toggle')
+      this.mail.isRead = !this.mail.isRead
+    },
     selectMail(mail) {
       this.selectedMail = mail
     },
@@ -57,6 +62,13 @@ export default {
           showErrorMsg('Failed to remove')
         })
     },
+    sortMails() {
+      // let mails = this.mails
+      this.mails.sort((m1, m2) => m1.sentAt - m2.sentAt)
+    },
+    //   mails.sort(function (x, y) {
+    //     return x.sentAt - y.sentAt
+    // }),
   },
   computed: {
     mailsForDisplay() {

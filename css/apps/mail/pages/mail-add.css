@@ -1,0 +1,28 @@
+.add-mail-container {
+  margin: 2em;
+}
+
+.compose-subject {
+  margin-bottom: 2em;
+}
+
+.send-mail-btn {
+  background-color: rgba(24, 24, 195, 0.822);
+  color: white;
+  font-weight: 600;
+  padding: 8px 13px;
+  border-radius: 6px;
+  border: none;
+}
+
+.input-mail-to,
+.input-mail-subject,
+.input-mail-content {
+  border-radius: 4px;
+}
+
+.input-mail-to,
+.input-mail-subject {
+  border: 0.5px solid grey;
+  padding: 8px 50px 8px 3px;
+}

@@ -10,6 +10,7 @@ export default {
                 <li v-for="mail in mails" :key="mail.id" >
                   <mail-preview class="mail-preview-container"  :mail="mail" />
                    <button @click="remove(mail.id)">X</button>
+                    <button class="is-read-btn" @click="toggleIsRead(mail.id)">Is Read</button>
                                         <!-- <button @click="select(mail.id)">Open mail</button> -->
                        <!-- <section class="mail-tool"> -->
                         <!-- </section> -->
@@ -31,6 +32,9 @@ export default {
   methods: {
     remove(id) {
       this.$emit('remove', id)
+    },
+    toggleIsRead(id) {
+      this.$emit('toggleIsRead', id)
     },
     // select(mail) {
     //   this.$emit('selected', mail)

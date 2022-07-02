@@ -1,7 +1,12 @@
-@import './mail-index.css';
-@import './mail-list.css';
-@import './mail-preview.css';
-@import './mail-filter.css';
-@import './mail-add.css';
-@import './mail-details.css';
-@import './mail-folder-list.css';
+@import './pages/mail-index.css';
+@import './pages/mail-add.css';
+@import './pages/mail-details.css';
+
+@import './cmp/mail-list.css';
+@import './cmp/mail-preview.css';
+@import './cmp/mail-filter.css';
+@import './cmp/mail-folder-list.css';
+
+@import './mq/mq.css';
+
+@import './parts/layout.css';
