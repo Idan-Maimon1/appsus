@@ -45,10 +45,13 @@ const gNotes = [
         type: "note-todos",
         info: {
             label: "to-do list",
-            todos: [
-                { txt: "first thing", doneAt: null },
-                { txt: "second thing", doneAt: 187111111 }
-            ]
+            title: "to-do list",
+            txt: "first thing, second thing",
+            todos: null,
+            // [
+            //     { txt: "first thing", doneAt: null },
+            //     { txt: "second thing", doneAt: 187111111 }
+            // ]
         },
         style: {
             backgroundColor: "var(--kp12)"

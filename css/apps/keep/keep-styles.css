@@ -101,6 +101,15 @@ body {
     border-radius: 1.5vw;
 }
 
+.note-preview iframe {
+    display: block;
+    justify-self: center;
+    margin: auto;
+    width: 220px;
+    border: 0px;
+    border-radius: 2vh;
+}
+
 .note-modificator {
     animation: 100ms ease-out 0s 1 slideInFromTop;
     display: grid;
@@ -217,11 +226,10 @@ body {
 }
 
 .icon-container:hover {
-    cursor: pointer;
     background-color: #f0f0f0;
     border-radius: 10px;
+    cursor: pointer;
 }
-
 .new-note-pin {
     grid-column: 12;
 }
@@ -292,5 +300,3 @@ body {
 .new-note-color-palette {
     z-index: 99;
 }
-
-   

@@ -7,16 +7,22 @@ export default {
     <section class="note-details">
         <input v-if="!isClicked" type="text" 
         placeholder="Add a note..."
-        @click="isClicked = !isClicked" class="demo-input">
-        <form :style="getFormStyle" v-else action="" class="add-note-form">
-            <input :style="getFormStyle" v-model="newNote.info.title" placeholder="Title"
+        @click="isClicked = !isClicked" 
+        class="demo-input">
+        <form :style="getFormStyle" 
+        v-else action="" class="add-note-form">
+            <input :style="getFormStyle"
+             v-model="newNote.info.title" 
+             placeholder="Title"
              type="text" class="form-title">
             <div class="icon-container new-note-pin">
                 <img src="img/keep-imgs/icons/pin.svg" alt="">
             </div>
-            <input autofocus placeholder="Add a note..." type="text"
+            <input autofocus type="text"
+            :placeholder="getPlaceHolder"
              class="form-txt-content"
-            v-model="newNote.info.txt">
+             v-model="newNote.info.txt"
+             v-model="newNote.info.url">
             <div class="icon-container new-note-palette">
                 <img @click="isPaletteOn = true" 
                 v-if="!isPaletteOn" 
@@ -25,16 +31,20 @@ export default {
                 class="new-note-color-palette"
                 @changeColor="changeNewNoteColor"></note-palette>
             </div>
-            <div class="icon-container new-note-text">
+            <div @click="newNote.type = 'note-txt'"
+            class="icon-container new-note-text">
                 <img src="img/keep-imgs/icons/add-text.svg">
             </div>
-            <div class="icon-container new-note-img">
+            <div @click="newNote.type = 'note-img'"
+             class="icon-container new-note-img">
                 <img src="img/keep-imgs/icons/img.svg">
             </div>
-            <div class="icon-container new-note-video">
+            <div @click="newNote.type = 'note-video'"
+            class="icon-container new-note-video">
                 <img src="img/keep-imgs/icons/video.svg">
             </div>
-            <div class="icon-container new-note-todos">
+            <div @click="newNote.type = 'note-todos'"
+             class="icon-container new-note-todos">
                 <img src="img/keep-imgs/icons/cc.svg" >
             </div>
             <button @click="postNewNote" class="add-new-note">Add</button>
@@ -87,15 +97,30 @@ export default {
             this.isPaletteOn = !this.isPaletteOn
             this.newNote.style.backgroundColor = color
         },
-        postNewNote(){
+        postNewNote() {
             this.isClicked = false
-            eventBus.emit('postNote',this.newNote)
+            eventBus.emit('postNote', this.newNote)
             this.resetNewNoteParams()
         }
     },
     computed: {
         getFormStyle() {
             return this.newNote.style
+        },
+        getPlaceHolder() {
+            const noteType = this.newNote.type
+            if (noteType === "note-txt") {
+                return "Add a note..."
+            }
+            else if (noteType === "note-img") {
+                return "Add an image url..."
+            }
+            else if (noteType === "note-todos") {
+                return "Add todo..."
+            }
+            else if (noteType === "note-video") {
+                return "Add a video url..."
+            }
         }
     },
     components: {
