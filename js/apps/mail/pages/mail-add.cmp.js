@@ -4,12 +4,14 @@ import { mailService } from '../services/mail-service.js'
 export default {
   template: `
         <section v-if="addMail" class="add-mail-container">
-            <h4>Compose mail</h4>
+            <h4>New Message</h4>
             <form @submit.prevent="save">
-                <input type="text" v-model="addMail.subject" placeholder="Subject" class="compose-subject"><br>
-                 <textarea v-model="addMail.body" id="newMailBody" name="newMailBody" rows="30" cols="80" required></textarea><br>
-
-                <button>Send</button>
+                <input class="input-mail-to" type="text" v-model="addMail.to" placeholder="To" class="compose-to"> <br><br>
+          
+               <input class="input-mail-subject" type="text" v-model="addMail.subject" placeholder="Subject" class="compose-subject">
+              
+               <textarea class="input-mail-content" v-model="addMail.body" id="newMailBody" name="newMailBody" rows="30" cols="80" required></textarea><br>
+                <button class="send-mail-btn">Send</button>
             </form>
         </section>
     `,

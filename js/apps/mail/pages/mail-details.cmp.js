@@ -8,8 +8,8 @@ export default {
             <p>From:<span class="mail-from-name">{{mail.from}} </span> <span class="mail-from-mail"> {{mail.to}} </span></p>
             <p>{{mail.body}}</p>
              <div class="actions">
-                       <button @click="remove(mail.id)">Delete</button>
-                        <!-- <router-link :to="'/mail">Back</router-link> -->
+                       <!-- <button @click="remove(mail.id)">Delete</button> -->
+                        <!-- <router-link :to="'/mail'">Back</router-link> -->
                     </div>
         </section>
     `,
