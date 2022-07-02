@@ -23,8 +23,6 @@ export default {
                  </div> -->
         </section>
 `,
-  // מעטפה סגורה
-  // <i class="fa-solid fa-envelope"></i>
 
   data() {
     return {}
