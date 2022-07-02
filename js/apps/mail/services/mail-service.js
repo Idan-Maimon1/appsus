@@ -53,7 +53,7 @@ const gMails = [
     to: 'momo@appsus.com',
   },
   {
-    id: 'e108',
+    id: 'e106',
     from: 'Osnat Chafetz',
     subject: "Don't forget to buy",
     body: 'Can you please buy me good Chocolate from Pariz? I fancy it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
@@ -63,7 +63,7 @@ const gMails = [
     to: 'yuvalevi@appsus.com',
   },
   {
-    id: 'e109',
+    id: 'e107',
     from: 'Yuval Levi',
     subject: 'Finished it all?',
     body: 'I wanted to check with you.. sis you finish everything that was on your list? Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
@@ -72,7 +72,7 @@ const gMails = [
     to: 'momo@appsus.com',
   },
   {
-    id: 'e110',
+    id: 'e108',
     from: 'Dan Tesler',
     subject: 'I have an idea',
     body: 'What to you think of going to a trip together for a fwe days? Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
@@ -81,7 +81,7 @@ const gMails = [
     to: 'yuvalevi@appsus.com',
   },
   {
-    id: 'e101',
+    id: 'e109',
     from: 'Roi Shemer',
     subject: 'Miss you tons',
     body: 'Would love to catch up sometimes. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
@@ -90,7 +90,7 @@ const gMails = [
     to: 'yuvalevi@appsus.com',
   },
   {
-    id: 'e102',
+    id: 'e110',
     from: 'Tal Gefen',
     subject: 'Love you',
     body: 'How are things going at your end? Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
@@ -99,7 +99,7 @@ const gMails = [
     to: 'yuvalevi@appsus.com',
   },
   {
-    id: 'e103',
+    id: 'e111',
     from: 'Nov Fine',
     subject: 'Hi There',
     body: 'just wanted to know how are you feeling? I thought about you today Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
@@ -108,7 +108,7 @@ const gMails = [
     to: 'yuvalevi@appsus.com',
   },
   {
-    id: 'e104',
+    id: 'e112',
     from: 'Yuval Levi',
     subject: 'When will you come?',
     body: 'Hi! i was wondering when will you come to see us? it has been a long time seens we saw each other? Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
@@ -117,7 +117,7 @@ const gMails = [
     to: 'tomy@appsus.com',
   },
   {
-    id: 'e105',
+    id: 'e113',
     from: 'Yuval Levi',
     subject: 'How was your exam?',
     body: 'Hi, How are you? Did you get that results yet? I am queries Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
@@ -126,7 +126,7 @@ const gMails = [
     to: 'momo@appsus.com',
   },
   {
-    id: 'e104',
+    id: 'e114',
     from: 'Yuval Levi',
     subject: 'When will you come?',
     body: 'Hi! i was wondering when will you come to see us? it has been a long time seens we saw each other? Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
@@ -135,7 +135,7 @@ const gMails = [
     to: 'tomy@appsus.com',
   },
   {
-    id: 'e105',
+    id: 'e115',
     from: 'Yuval Levi',
     subject: 'How was your exam?',
     body: 'Hi, How are you? Did you get that results yet? I am queries Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
@@ -144,7 +144,7 @@ const gMails = [
     to: 'momo@appsus.com',
   },
   {
-    id: 'e105',
+    id: 'e116',
     from: 'Yuval Levi',
     subject: 'How was your exam?',
     body: 'Hi, How are you? Did you get that results yet? I am queries Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aut nam ipsum voluptatum iure doloremque facere beatae ipsam voluptas. Optio facere qui atque omnis at? Molestiae natus ex autem temporibus.',
