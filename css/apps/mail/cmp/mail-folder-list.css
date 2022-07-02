@@ -11,3 +11,7 @@
 .inbox-btn {
   background-color: #d3e3fd;
 }
+
+.sent-btn {
+  padding-right: 87px;
+}

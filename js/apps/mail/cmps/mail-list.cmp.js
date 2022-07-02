@@ -7,11 +7,11 @@ export default {
        <section class="mail-list">
             <ul class="mails-list">
               <hr/>
-                <li :class="mail.isRead ? '' : 'ffff'"
+                <li :class="mail.isRead ? '' : 'make-bold'"
                  v-for="mail in mails" :key="mail.id" >
                   <mail-preview class="mail-preview-container"  :mail="mail" />
-                   <button @click="remove(mail.id)">X</button>
-                    <button class="is-read-btn" @click="toggleIsRead(mail.id)">Is Read</button>
+                   <button @click="remove(mail.id)"><i class="fa-solid fa-trash-can"></i></button>
+                    <button class="is-read-btn" @click="toggleIsRead(mail.id)"><i class="fa-solid fa-envelope-open"></i></button>
                                         <!-- <button @click="select(mail.id)">Open mail</button> -->
                        <!-- <section class="mail-tool"> -->
                         <!-- </section> -->
@@ -22,6 +22,9 @@ export default {
                  </div> -->
         </section>
 `,
+  // מעטפה סגורה
+  // <i class="fa-solid fa-envelope"></i>
+
   data() {
     return {}
   },

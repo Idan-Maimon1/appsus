@@ -1,5 +1,5 @@
 .search-mail {
-  margin: 2rem;
+  margin: 0.5rem 2rem;
   border-radius: 10px;
   padding: 7px;
   background-color: #eef3fc;
@@ -7,9 +7,14 @@
 }
 
 .sort-mail-btn {
-  margin: 2rem;
+  margin: 0.5rem 2rem;
   border-radius: 10px;
-  padding: 7px 25px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   background-color: #eef3fc;
   border: 0.5px solid grey;
+  margin-bottom: 3em;
+  color: grey;
+  margin-top: 0;
+  cursor: pointer;
 }

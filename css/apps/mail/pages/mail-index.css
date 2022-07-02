@@ -12,4 +12,6 @@
   font-weight: 700;
   color: black;
   border: 0.5px solid grey;
+  display: block;
+  margin: 2rem;
 }

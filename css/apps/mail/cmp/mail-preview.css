@@ -13,7 +13,7 @@
   text-decoration: none;
 }
 
-.mail-signs {
+.mail-star {
   grid-column: 1;
 }
 
@@ -60,3 +60,7 @@ grid-column: 2;
   font-weight: 700;
 }
 
+.make-bold .mail-subject,
+.make-bold .mail-from {
+  font-weight: 700;
+}
