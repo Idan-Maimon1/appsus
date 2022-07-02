@@ -1,5 +1,5 @@
 import notePalette from '../cmps/note-palette.cmp.js'
-import { noteService } from '../../../services/note.service.js'
+import { noteService } from '../services/note.service.js'
 import { eventBus } from "../../../services/eventBus-service.js"
 
 export default {
@@ -16,7 +16,8 @@ export default {
              v-model="newNote.info.title" 
              placeholder="Title"
              type="text" class="form-title">
-            <div @click="this.newNote.isPinned = !this.newNote.isPinned" 
+            <div 
+            @click="this.newNote.isPinned = !this.newNote.isPinned" 
             :class="[this.newNote.isPinned ? 'pinned' : '' ,'icon-container','new-note-pin']" >
                 <img src="img/keep-imgs/icons/pin.svg" alt="">
             </div>
@@ -147,7 +148,7 @@ export default {
                 return "Add an image url..."
             }
             else if (noteType === "note-todos") {
-                return "Add todo..."
+                return "Add comma sepereated todos..."
             }
             else if (noteType === "note-video") {
                 return "Add a video url..."

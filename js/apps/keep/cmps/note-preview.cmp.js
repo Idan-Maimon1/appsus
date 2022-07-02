@@ -17,8 +17,8 @@ export default {
       @mouseleave="hideMOdBar"
       @mouseleave="isHoverNow = false"
       >
-          <img src="img/keep-imgs/icons/pin.svg" 
-          @click="togglePinned" class="note-pin-status">
+          <!-- <img src="img/keep-imgs/icons/pin.svg" 
+          @click="togglePinned" class="note-pin-status"> -->
         <div v-if="note.type === noteTypes.txt">
             <note-txt :currNote='currNote'/>
          </div>

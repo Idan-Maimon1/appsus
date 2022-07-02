@@ -1,7 +1,7 @@
 import noteList from '../cmps/note-list.cmp.js'
 import noteFilter from '../cmps/note-filter.cmp.js'
 import noteDetails from './note-details.cmp.js';
-import { noteService } from '../../../services/note.service.js'
+import { noteService } from '../services/note.service.js'
 import { eventBus } from "../../../services/eventBus-service.js"
 
 
@@ -9,7 +9,8 @@ export default {
     template: `
     <section class="keep-main-layout">
         <note-filter/>
-        <note-details :isEditable="demoFalse" :key="newNote" />
+        <note-details :isEditable="demoFalse" 
+        :key="newNote" />
         <note-list :notes="notesForDisplay"
         @remove="removeNote"
         @changeColor="updateNote"/>
