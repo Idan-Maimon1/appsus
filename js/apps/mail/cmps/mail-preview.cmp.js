@@ -3,17 +3,17 @@ export default {
   template: `
  
     <section> 
-    <span class="mail-signs">
-      <span class="mail-squeare">&#10065</span> 
+    <!-- <span class="mail-signs"> -->
+      <!-- <span class="mail-squeare">&#10065</span>  -->
       <span class="mail-star">&#10032;</span>
-    </span>
+    <!-- </span> -->
    
     <span class="mail-from" >{{mail.from}}</span>
       <router-link :to="'/mail/'+mail.id" class="router-mail-details">
     <span class="mail-short-content" >  
        <span class="mail-subject"> {{mail.subject}}</span> - 
 
- <span>{{formatedText}}<span v-if="longText">...</span></span>
+ <span>{{formatedText}}<span v-if="longText">...</span></span></span>
      </router-link>     
        <!-- <span>{{mail.body}}</span></span>  -->
     <span class="mail-time">{{formatedTime}}</span>

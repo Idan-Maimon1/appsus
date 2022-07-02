@@ -7,12 +7,19 @@ import mailDetails from './mail-details.cmp.js'
 export default {
   template: `
  <section class="mail-main-layout">
+  <div class="main-mail-container">
+<div class="side-menu">
+  <div><router-link to="/mail/add" class="compose-btn">Compose</router-link></div>
  <mail-filter @filtered="filterMail" @sorted="sortMails" class="filter-mail"/>
-  <router-link to="/mail/add" class="compose-btn">Compose</router-link>
-
+ </div>
+ <!-- <mail-folder-list @setFolderType="filter" :numOfUnread="numOfUnread" /> -->
   <!-- <mail-folder-list/> -->
-    <mail-list :mails="mailsForDisplay" @remove="remove" @toggleIsRead= 'toggleIsRead' />
-     <mail-details v-if="selectedMail" @close="selectedMail = null" :mail="selectedMail" @remove="remove"/>
+<div class="main-mails">
+<mail-list :mails="mailsForDisplay" @remove="remove" @toggleIsRead= 'toggleIsRead' />
+</div>
+</div>
+<mail-details v-if="selectedMail" @close="selectedMail = null" :mail="selectedMail" @remove="remove"/>
+
  </section>
 `,
   components: {
@@ -31,10 +38,18 @@ export default {
         to: 'inbox',
       },
       selectedMail: null,
+      // numOfUnread: '',
     }
   },
   created() {
     mailService.query().then((mails) => (this.mails = mails))
+    // .then((mails) => {
+    //   this.numOfUnread = mails.filter((mail) => {
+    //     !mail.isRead
+    //     return !mail.isRead
+    //   })
+    //   console.log(this.numOfUnread.length)
+    // })
   },
   methods: {
     filterMail(filterBy) {
@@ -42,7 +57,7 @@ export default {
       this.filterBy = filterBy
     },
     toggleIsRead(id) {
-      const idx = this.mails.findIndex(mail => mail.id === id)
+      const idx = this.mails.findIndex((mail) => mail.id === id)
       this.mails[idx].isRead = !this.mails[idx].isRead
       mailService.putMail(this.mails[idx])
     },
@@ -74,11 +89,11 @@ export default {
   computed: {
     mailsForDisplay() {
       let mails = this.mails
-      if (!this.filterBy) return mails
-      const regex1 = new RegExp(this.filterBy.subject, 'i')
-      const regex2 = new RegExp(this.filterBy.body, 'i')
-      const regex3 = new RegExp(this.filterBy.from, 'i')
-
+      if (!this.filterBy || !mails?.length) return mails
+      const regex1 = new RegExp(this.filterBy.text, 'i')
+      // const regex2 = new RegExp(this.filterBy.body, 'i')
+      // const regex3 = new RegExp(this.filterBy.from, 'i')
+      console.log(this.filterBy)
       mails = mails.filter((mail) => {
         // const is =
         this.filterBy.to === 'inbox'
@@ -87,8 +102,8 @@ export default {
 
         return (
           (regex1.test(mail.subject) ||
-            regex2.test(mail.body) ||
-            regex3.test(mail.from)) &&
+            regex1.test(mail.body) ||
+            regex1.test(mail.from)) &&
           (this.filterBy.to === 'inbox'
             ? mail.to === 'yuvalevi@appsus.com'
             : mail.to !== 'yuvalevi@appsus.com')
