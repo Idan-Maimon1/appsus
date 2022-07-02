@@ -1,5 +1,4 @@
 import mailPreview from './mail-preview.cmp.js'
-// import mailDetails from '../pages/mail-details.cmp.js'
 
 export default {
   props: ['mails'],
@@ -11,16 +10,10 @@ export default {
                  v-for="mail in mails" :key="mail.id" >
                   <mail-preview class="mail-preview-container" 
                   @remove="remove" @toggleIsRead= 'toggleIsRead' :mail="mail" />
-                   <!-- <button @click="remove(mail.id)"><i class="fa-solid fa-trash-can"></i></button>
-                    <button class="is-read-btn" @click="toggleIsRead(mail.id)"><i class="fa-solid fa-envelope-open"></i></button> -->
-                                        <!-- <button @click="select(mail.id)">Open mail</button> -->
-                       <!-- <section class="mail-tool"> -->
-                        <!-- </section> -->
                         <hr/>
                       </li>
                     </ul>
-                    <!-- <div class="actions">        
-                 </div> -->
+               
         </section>
 `,
 
@@ -29,7 +22,6 @@ export default {
   },
   components: {
     mailPreview,
-    // mailDetails,
   },
   created() {},
   methods: {
@@ -39,9 +31,6 @@ export default {
     toggleIsRead(id) {
       this.$emit('toggleIsRead', id)
     },
-    // select(mail) {
-    //   this.$emit('selected', mail)
-    // },
   },
   computed: {},
   unmounted() {},

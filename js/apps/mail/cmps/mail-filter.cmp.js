@@ -9,7 +9,6 @@ export default {
              v-model="filterBy.text" 
              type="text" placeholder="Search mail">
         </div>
-        <!-- <button class="sort-mail-btn" @click="sort">Sort by date</button> -->
           <mail-folder-list @setFolderType="filter"/>
     </section>
     `,

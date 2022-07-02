@@ -1,6 +1,5 @@
-.main-mail-container {
-  display: flex;
-
+.mail-main-layout {
+  font-family: 'Roboto';
 }
 
 .main-mails {
@@ -25,6 +24,6 @@ ul {
   grid-row: 1;
 }
 
-.side-menu{
+.side-menu {
   grid-row: 2;
 }
