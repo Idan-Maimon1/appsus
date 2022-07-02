@@ -11,7 +11,7 @@ export default {
   <router-link to="/mail/add" class="compose-btn">Compose</router-link>
 
   <!-- <mail-folder-list/> -->
-    <mail-list :mails="mailsForDisplay" @remove="remove" @toggleIsRead= toggleIsRead />
+    <mail-list :mails="mailsForDisplay" @remove="remove" @toggleIsRead= 'toggleIsRead' />
      <mail-details v-if="selectedMail" @close="selectedMail = null" :mail="selectedMail" @remove="remove"/>
  </section>
 `,
@@ -42,8 +42,9 @@ export default {
       this.filterBy = filterBy
     },
     toggleIsRead(id) {
-      console.log('toggle')
-      this.mail.isRead = !this.mail.isRead
+      const idx = this.mails.findIndex(mail => mail.id === id)
+      this.mails[idx].isRead = !this.mails[idx].isRead
+      mailService.putMail(this.mails[idx])
     },
     selectMail(mail) {
       this.selectedMail = mail

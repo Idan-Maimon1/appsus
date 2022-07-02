@@ -108,6 +108,7 @@ export const mailService = {
   remove,
   save,
   getEmptyMail,
+  putMail,
   // getNextMailId,
 }
 
@@ -164,4 +165,7 @@ function getEmptyMail() {
     sentAt: Date.now(),
     to: loggedinUser.email,
   }
+}
+function putMail(updatedMail) {
+  return storageService.put(MAILS_KEY,updatedMail)
 }
