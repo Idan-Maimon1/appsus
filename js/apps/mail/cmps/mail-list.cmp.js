@@ -7,11 +7,12 @@ export default {
        <section class="mail-list">
             <ul class="mails-list">
               <hr/>
-                <li :class="mail.isRead ? '' : 'make-bold'"
+                <li :class="mail.isRead ? 'opened-mail' : 'make-bold'"
                  v-for="mail in mails" :key="mail.id" >
-                  <mail-preview class="mail-preview-container"  :mail="mail" />
-                   <button @click="remove(mail.id)"><i class="fa-solid fa-trash-can"></i></button>
-                    <button class="is-read-btn" @click="toggleIsRead(mail.id)"><i class="fa-solid fa-envelope-open"></i></button>
+                  <mail-preview class="mail-preview-container" 
+                  @remove="remove" @toggleIsRead= 'toggleIsRead' :mail="mail" />
+                   <!-- <button @click="remove(mail.id)"><i class="fa-solid fa-trash-can"></i></button>
+                    <button class="is-read-btn" @click="toggleIsRead(mail.id)"><i class="fa-solid fa-envelope-open"></i></button> -->
                                         <!-- <button @click="select(mail.id)">Open mail</button> -->
                        <!-- <section class="mail-tool"> -->
                         <!-- </section> -->

@@ -1,9 +1,12 @@
 .add-mail-container {
-  margin: 2em;
+  margin: 30px auto;
+  max-width: 609px;
+  display: flex;
 }
 
-.compose-subject {
-  margin-bottom: 2em;
+.add-mail-container>* {
+  display: block;
+  margin-bottom: 10px;
 }
 
 .send-mail-btn {
@@ -19,10 +22,16 @@
 .input-mail-subject,
 .input-mail-content {
   border-radius: 4px;
+  justify-self: center;
+  margin: 10px;
 }
 
 .input-mail-to,
 .input-mail-subject {
   border: 0.5px solid grey;
   padding: 8px 50px 8px 3px;
+}
+.add-mail-container h4 , .add-mail-container button{
+  margin-left: 10px;
+  margin-top: 0;
 }

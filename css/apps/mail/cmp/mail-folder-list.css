@@ -1,17 +1,27 @@
 .inbox-btn,
 .sent-btn {
+  background-color: transparent;
   margin-left: 2em;
   border-radius: 1px 12px 12px 1px;
   padding: 6px 80px 6px 30px;
   font-weight: 600;
   border: none;
   cursor: pointer;
+  width: 156px;
+}
+.inbox-btn:hover,
+.sent-btn:hover{
+  background-color: #F1F3F4;
 }
 
 .inbox-btn {
-  background-color: #d3e3fd;
+  background-color: #fce8e6;
+  color: #d61200;
 }
 
 .sent-btn {
   padding-right: 87px;
+}
+.unread-count{
+  margin-left: 0px;
 }

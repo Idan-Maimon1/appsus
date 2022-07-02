@@ -2,23 +2,30 @@ import { mailService } from '../services/mail-service.js'
 import mailList from '../cmps/mail-list.cmp.js'
 import mailFilter from '../cmps/mail-filter.cmp.js'
 import mailDetails from './mail-details.cmp.js'
+import { eventBus } from "../../../services/eventBus-service.js"
+
 // import mailFolderList from '../cmps/mail-folder-list.cmp.js'
 
 export default {
   template: `
  <section class="mail-main-layout">
-  <div class="main-mail-container">
-<div class="side-menu">
-  <div><router-link to="/mail/add" class="compose-btn">Compose</router-link></div>
- <mail-filter @filtered="filterMail" @sorted="sortMails" class="filter-mail"/>
- </div>
+   <!-- <div class="main-mail-container"> -->
+     <div class="side-menu">
+       <div><router-link to="/mail/add" 
+       class="compose-btn"><img src="img/mail-imgs/plus.png" alt=""> Compose</router-link></div>
+      <mail-filter @filtered="filterMail"
+        class="filter-mail"/>
+      </div>
+    <button class="sort-mail-btn" @click="sortMails">Sort by date</button>
  <!-- <mail-folder-list @setFolderType="filter" :numOfUnread="numOfUnread" /> -->
   <!-- <mail-folder-list/> -->
 <div class="main-mails">
-<mail-list :mails="mailsForDisplay" @remove="remove" @toggleIsRead= 'toggleIsRead' />
+<mail-list :mails="mailsForDisplay" 
+@remove="remove" @toggleIsRead= 'toggleIsRead' />
 </div>
-</div>
-<mail-details v-if="selectedMail" @close="selectedMail = null" :mail="selectedMail" @remove="remove"/>
+<mail-details v-if="selectedMail"
+ @close="selectedMail = null"
+  :mail="selectedMail" @remove="remove"/>
 
  </section>
 `,
@@ -38,18 +45,18 @@ export default {
         to: 'inbox',
       },
       selectedMail: null,
-      // numOfUnread: '',
+      numOfUnread: '',
     }
   },
   created() {
     mailService.query().then((mails) => (this.mails = mails))
-    // .then((mails) => {
-    //   this.numOfUnread = mails.filter((mail) => {
-    //     !mail.isRead
-    //     return !mail.isRead
-    //   })
-    //   console.log(this.numOfUnread.length)
-    // })
+    .then((mails) => {
+      this.numOfUnread = mails.filter((mail) => {
+        !mail.isRead
+        return !mail.isRead
+      })
+      eventBus.emit('countUnread',this.numOfUnread.length)
+    })
   },
   methods: {
     filterMail(filterBy) {

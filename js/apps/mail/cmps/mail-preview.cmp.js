@@ -15,8 +15,10 @@ export default {
 
  <span>{{formatedText}}<span v-if="longText">...</span></span></span>
      </router-link>     
+     <span class="mail-time">{{formatedTime}}</span>
+     <button @click="remove(mail.id)"><i class="fa-solid fa-trash-can"></i></button>
+     <button class="is-read-btn" @click="toggleIsRead(mail.id)"><i class="fa-solid fa-envelope-open"></i></button>
        <!-- <span>{{mail.body}}</span></span>  -->
-    <span class="mail-time">{{formatedTime}}</span>
     <!-- <button class="delete-mail-btn" @click="remove(mail.id)">Delete</button> -->
     <!-- <button class="is-read-btn" @click="toggleIsRead()">Is Read</button> -->
       
@@ -37,6 +39,12 @@ export default {
     // toggleIsRead() {
     //   this.mail.isRead = !this.mail.isRead
     // },
+    remove(id) {
+      this.$emit('remove', id)
+    },
+    toggleIsRead(id) {
+      this.$emit('toggleIsRead', id)
+    },
   },
   computed: {
     formatedTime() {

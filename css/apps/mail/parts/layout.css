@@ -1,3 +1,30 @@
 .main-mail-container {
   display: flex;
+
+}
+
+.main-mails {
+  grid-column: 2;
+  grid-row: 2;
+  margin-top: 2rem;
+}
+
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0;
+}
+
+.sort-mail-btn {
+  height: fit-content;
+  width: fit-content;
+  margin: 15px 0;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.side-menu{
+  grid-row: 2;
 }
