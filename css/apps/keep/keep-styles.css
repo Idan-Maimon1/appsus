@@ -45,6 +45,8 @@ body {
     height: fit-content;
     width: 100vw;
     background-color: rgb(241, 243, 252);
+    transition-property: red;
+    transition: red 4s;
 }
 
 .note-details {
@@ -191,6 +193,7 @@ body {
     outline: 0px;
     border: 0px;
     border-radius: 0;
+    background-color: transparent;
 }
 
 .form-title {
@@ -267,9 +270,8 @@ body {
     grid-column: 9/span 2;
     border: 0;
     height: 80%;
-    width: 90%;
+    width: 95%;
     border-radius: 4px;
-    transition: 500ms;
     background-color: var(--kblue);
     color: white;
 }
@@ -280,5 +282,15 @@ body {
     border: 0;
     height: 80%;
     width: 90%;
-    transition: 300ms;
 }
+
+.close-new-note-form:hover {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+.new-note-color-palette {
+    z-index: 99;
+}
+
+   

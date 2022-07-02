@@ -4,7 +4,10 @@ export default {
     props: ['notes'],
     template: `
  <section class="note-preview-container">
- <note-preview :key="note.id" v-for="note in notes" :note="note" @remove="remove"/>
+ <note-preview :key="note.id" 
+    v-for="(note,index) in notes"
+    :note="note" :index="index" @remove="remove"
+    @changeColor="changeColor"/>
  </section>
 `,
     data() {
@@ -15,6 +18,9 @@ export default {
     methods: {
         remove(id) {
             this.$emit('remove', id);
+        },
+        changeColor(updatedNote) {
+            this.$emit('changeColor',updatedNote)
         }
     },
     computed: {

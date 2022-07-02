@@ -31,3 +31,10 @@ export function showSuccessMsg(txt) {
 export function showErrorMsg(txt) {
   showUserMsg({ txt, type: 'error' })
 }
+
+
+eventBus.emit('doSomething',{name:'muki'})
+
+eventBus.on('doSomething',(data)=>{
+  console.log(data)
+})
