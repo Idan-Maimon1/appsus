@@ -5,6 +5,7 @@ export const storageService = {
   put,
   remove,
   postMany,
+  makeId,
 }
 
 // gets all the items
@@ -22,9 +23,9 @@ function get(entityType, entityId) {
 
 //create new item
 function post(entityType, newEntity) {
-  newEntity.id = _makeId()
+  newEntity.id = makeId()
   return query(entityType).then((entities) => {
-    entities.push(newEntity)
+    entities.unshift(newEntity)
     _save(entityType, entities)
     return newEntity
   })
@@ -62,7 +63,7 @@ function _save(entityType, entities) {
   localStorage.setItem(entityType, JSON.stringify(entities))
 }
 
-function _makeId(length = 8) {
+function makeId(length = 8) {
   var text = ''
   var possible =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'

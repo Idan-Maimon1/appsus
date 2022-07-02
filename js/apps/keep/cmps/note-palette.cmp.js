@@ -3,7 +3,8 @@ export default {
  <section class="palette-hub">
     <div v-for="(item, index) in 20"
      class="colors-pallete"
-    :style="{ 'background-color': getCurrColor}">
+    :style="{ 'background-color': getCurrColor}"
+    @click="changeColor(index)">
     <h2>
         {{updateColor(index+1)}}
     </h2>
@@ -19,16 +20,24 @@ export default {
     methods: {
         updateColor(num) {
             if (!this.currColorIdx) {
-                console.log('num: ', num)
             }
             this.currColorIdx = num
             return this.currColorIdx
+        },
+        changeColor(index) {
+            if(!index) {
+            this.$emit('changeColor', 'var(--kp20)');
+            }
+            else{
+                this.$emit('changeColor', `var(--kp${index})`);
+            }
         }
     },
     computed: {
         getCurrColor() {
             return `var(--kp${this.currColorIdx})`
         }
+
     },
     unmounted() { },
 };

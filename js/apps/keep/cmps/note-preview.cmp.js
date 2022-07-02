@@ -6,9 +6,9 @@ import noteTodos from './note-types/note-todos.cmp.js'
 import notePalette from './note-palette.cmp.js'
 
 export default {
-    props: ['note'],
+    props: ['note', 'index'],
     template: `
-    <div class="note-preview"
+    <div :style="getNoteStyle" class="note-preview"
       @mouseover="isModBarOn = true"
       @mouseover="isHoverNow = true"
       @mouseleave="hideMOdBar"
@@ -26,8 +26,8 @@ export default {
         <div v-else-if="note.type === noteTypes.img">
             <note-img :currNote='currNote'/>
         </div>
-        <note-palette v-if="isPickColorClicked"/>
-        <!-- <note-modificator v-if="isModBarOn || isPickColorClicked" -->
+        <note-palette v-if="isPickColorClicked" 
+            @changeColor="changeColor"/>
          <note-modificator :class="(isModBarOn || isPickColorClicked) ? '' : 'fade-out'"       
              :currNote='currNote' 
              class="note-modificator"
@@ -68,9 +68,16 @@ export default {
             }, 200);
 
         },
+        changeColor(color) {
+            const updatedNote = this.note
+            updatedNote.style.backgroundColor = color
+            this.$emit('changeColor',updatedNote)
+        }
     },
     computed: {
-
+        getNoteStyle() {
+            return this.note.style
+        }
     },
     components: {
         noteTxt,

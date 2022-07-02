@@ -8,6 +8,9 @@ const NOTES_KEY = 'notes';
 export const noteService = {
     query,
     remove,
+    updateNote,
+    post,
+    makeId,
 };
 
 const gNotes = [
@@ -22,7 +25,7 @@ const gNotes = [
         },
         style: {
             backgroundColor: "var(--kp2)"
-        }
+        } 
     },
     {
 
@@ -42,10 +45,13 @@ const gNotes = [
         type: "note-todos",
         info: {
             label: "to-do list",
-            todos: [
-                { txt: "first thing", doneAt: null },
-                { txt: "second thing", doneAt: 187111111 }
-            ]
+            title: "to-do list",
+            txt: "first thing, second thing",
+            todos: null,
+            // [
+            //     { txt: "first thing", doneAt: null },
+            //     { txt: "second thing", doneAt: 187111111 }
+            // ]
         },
         style: {
             backgroundColor: "var(--kp12)"
@@ -69,4 +75,13 @@ function _createNotes() {
         utilService.saveToStorage(NOTES_KEY, notes);
     }
     return notes;
+}
+function updateNote(updatedNote) {
+    return storageService.put(NOTES_KEY, updatedNote)
+}
+function post(newNote) {
+    return storageService.post(NOTES_KEY, newNote)
+}
+function makeId() {
+    return storageService.makeId
 }

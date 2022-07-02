@@ -2,6 +2,7 @@ import noteList from '../cmps/note-list.cmp.js'
 import noteFilter from '../cmps/note-filter.cmp.js'
 import noteDetails from './note-details.cmp.js';
 import { noteService } from '../../../services/note.service.js'
+import { eventBus } from "../../../services/eventBus-service.js"
 
 
 export default {
@@ -9,7 +10,9 @@ export default {
     <section class="keep-main-layout">
         <note-filter/>
         <note-details/>
-        <note-list :notes="notesForDisplay" @remove="removeNote"/>
+        <note-list :notes="notesForDisplay"
+         @remove="removeNote"
+         @changeColor="changeNoteColor"/>
     </section>
     <!-- <note-filter @filtered="setFilter" /> -->
         <!-- <note-list :notes="notesForDisplay" @remove="removenote"  /> -->
@@ -21,23 +24,26 @@ export default {
     },
     created() {
         noteService.query().then(notes => this.notes = notes)
+        this.unsubscribe = eventBus.on('postNote', this.postNote)
     },
     methods: {
         removeNote(id) {
             noteService.remove(id)
                 .then(() => {
-                    console.log(id,'Deleted successfully')
                     const idx = this.notes.findIndex((note) => note.id === id)
-                    console.log('note[idx]: ',this.notes)
                     this.notes.splice(idx, 1)
-                    console.log('this.notes: ',this.notes)
-                    //   showSuccessMsg('Deleted successfully')
                 })
-            // .catch(err => {
-            //     console.log(err)
-            //     showErrorMsg('Failed to remove')
-            // })
         },
+        changeNoteColor(updatedNote) {
+            noteService.updateNote(updatedNote)
+        },
+        postNote(note) {
+            let newNote = JSON.parse(JSON.stringify(note))
+            newNote.id = noteService.makeId()
+            noteService.post(newNote)
+                .then((updatedNote) => this.notes.unshift(updatedNote))
+        }
+
     },
     computed: {
         notesForDisplay() {
@@ -56,6 +62,9 @@ export default {
         noteFilter,
         noteList,
         noteDetails,
+    }, destroyed() {
+
+        this.unsubscribe()
     },
     unmounted() { },
 };
