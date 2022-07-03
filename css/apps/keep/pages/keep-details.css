@@ -4,11 +4,22 @@
     width: fit-content;
     font-size: 0.9rem;
     height: 6vh;
-    width: 420px;
+    width: 370px;
     border: 0px;
     outline: 0px;
     border-radius: 7px;
+    grid-column: 2;
     /* animation: 200ms ease-out 0s 1 demoFormAnimation; */
+}
+
+.filter-select {
+    cursor: pointer;
+    outline: 0ch;
+    border-radius: 15px;
+    border: 0ch;
+    width: 18px;
+    margin-right: 10px;
+    box-shadow: 0 1px 1px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
 }
 
 .add-note-form {
@@ -131,6 +142,23 @@
     height: 75%;
     align-self: center;
     justify-self: center;
+}
+
+.demo-container {
+    display: grid;
+}
+
+.filter-icon {
+    grid-column: 1;
+    height: 40px;
+    margin-right: 10px;
+    padding: 3px;
+}
+
+.filter-icon:hover {
+    background-color: rgba(255, 255, 255, 0.644);
+    cursor: pointer;
+    border-radius: 8px;
 }
 
 .add-new-note {

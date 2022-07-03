@@ -33,15 +33,31 @@ export default {
     },
     created() {
         noteService.query()
-        .then(notes => notes.sort(function(x,y){
-            return (x === y)? 0 : x? -1 : 1;
-        }))
-        .then(notes => this.notes = notes)
+            .then(notes => notes.sort(function (x, y) {
+                return (x === y) ? 0 : x ? -1 : 1;
+            }))
+            .then(notes => this.notes = notes)
         this.unsubscribe = eventBus.on('postNote', this.postNote)
         this.unsubscribe = eventBus.on('updateNote', this.updateNote)
         this.unsubscribe = eventBus.on('editNote', this.editNote)
+        this.unsubscribe = eventBus.on('filterNotes', this.filterNotes)
+
     },
     methods: {
+        filterNotes(filter) {
+            if (filter === 'no-filter') {
+                noteService.query()
+                    .then(notes => this.notes = notes)
+                return
+            }
+            else {
+                noteService.query()
+                .then(notes => notes
+                .filter(note => note.type == filter))
+                .then(notes => this.notes = notes)
+            }
+
+        },
         editNote(note) {
             this.isEditable = true
             this.currEditedNote = note

@@ -6,10 +6,23 @@ export default {
     props: ['isEditable', 'currNote'],
     template: `
     <section class="note-details">
-        <input v-if="!isClicked" type="text" 
-        placeholder="Add a note..."
-        @click="isClicked = !isClicked" 
-        class="demo-input">
+        <div v-if="!isClicked" class="demo-container">
+            <img v-if='!isFilterBar' @click="isFilterBar = !isFilterBar" 
+             src="img/keep-imgs/icons/filter.svg" class="filter-icon">
+            <select @change="isFilterBar = !isFilterBar"
+             v-if='isFilterBar' v-model="filterBy"
+             class="filter-select">
+                <option value='no-filter' >Show all</option>
+                <option value="note-txt">Text notes</option>
+                <option value="note-img">Img notes</option>
+                <option value="note-video">Video notes</option>
+                <option value="note-todos">Todo notes</option>
+              </select>
+            <input type="text" 
+            placeholder="Add a note..."
+            @click="isClicked = !isClicked" 
+            class="demo-input">
+        </div>
         <form :style="getFormStyle" 
         v-else action="" class="add-note-form">
             <input :style="getFormStyle"
@@ -61,6 +74,8 @@ export default {
             isClicked: false,
             isPaletteOn: false,
             isExistingNote: false,
+            isFilterBar: false,
+            filterBy: null,
             newNote: {
                 id: noteService.makeId(),
                 type: "note-txt",
@@ -90,12 +105,12 @@ export default {
         }
     },
     methods: {
-        discardChanges(){
+        discardChanges() {
             if (this.isExistingNote) {
-            this.newNote.info = this.backupNote.info
-            this.newNote.type = this.backupNote.type
-            this.newNote.isPinned = this.backupNote.isPinned
-            this.newNote.style = this.backupNote.style
+                this.newNote.info = this.backupNote.info
+                this.newNote.type = this.backupNote.type
+                this.newNote.isPinned = this.backupNote.isPinned
+                this.newNote.style = this.backupNote.style
             }
             this.isClicked = !this.isClicked
         },
@@ -164,6 +179,10 @@ export default {
                 this.$emit('toggleEditable')
             }
         },
+        filterBy(newVal) {
+            console.log('newVal: ',newVal)
+            eventBus.emit('filterNotes', newVal)
+        }
     },
     unmounted() { },
 };
