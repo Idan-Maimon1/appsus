@@ -17,19 +17,31 @@ const gNotes = [
     {
 
         id: utilService.makeId(),
-        type: "note-todos",
+        type: "note-img",
         info: {
+            url: "https://cdn.businesstraveller.com/wp-content/uploads/fly-images/1011630/W-Maldives-916x516.jpg",
             label: "to-do list",
-            title: "to-do list",
+            title: "Maldives",
             txt: "first thing, second thing",
             todos: null,
-            // [
-            //     { txt: "first thing", doneAt: null },
-            //     { txt: "second thing", doneAt: 187111111 }
-            // ]
         },
         style: {
-            backgroundColor: "var(--kp3)"
+            backgroundColor: "var(--kp4)"
+        }
+    },
+    {
+
+        id: utilService.makeId(),
+        type: "note-img",
+        info: {
+            url: "https://breathelife2030.imgix.net/wp-content/uploads/2019/02/paris-1836415_1920.jpg",
+            label: "to-do list",
+            title: "Paris at night",
+            txt: "first thing, second thing",
+            todos: null,
+        },
+        style: {
+            backgroundColor: "var(--kp12)"
         }
     },
     {
@@ -39,10 +51,11 @@ const gNotes = [
         isPinned: true,
         info: {
             title: "World cup starting soonn",
-            txt: "this year from 21 november to 18 december"
+            txt: "this year from 21 november to 18 december",
+            url: "this year from 21 november to 18 december"
         },
         style: {
-            backgroundColor: "var(--kp2)"
+            backgroundColor: "var(--kp6)"
         }
     },
     {
@@ -54,7 +67,7 @@ const gNotes = [
             title: "remeber to watch this before sunday"
         },
         style: {
-            backgroundColor: "var(--kp12)"
+            backgroundColor: "var(--kp11)"
         }
     },
     {
@@ -69,7 +82,7 @@ const gNotes = [
         style: {
             backgroundColor: "var(--kp5)"
         }
-
+        
     },
     {
 
@@ -83,6 +96,37 @@ const gNotes = [
             backgroundColor: "var(--kp4)"
         }
     },
+    {
+
+        id: utilService.makeId(),
+        type: "note-img",
+        info: {
+            url: "https://www.harlemworldmagazine.com/wp-content/uploads/2022/06/United-Kingdom.jpg",
+            label: "to-do list",
+            title: "London view",
+            txt: "first thing, second thing",
+            todos: null,
+        },
+        style: {
+            backgroundColor: "var(--kp10)"
+        }
+    },
+    {
+
+        id: utilService.makeId(),
+        type: "note-txt",
+        info: {
+            url: "cancel the gym membership",
+            label: "to-do list",
+            title: "Important!!!",
+            txt: "cancel the gym membership",
+            todos: null,
+        },
+        style: {
+            backgroundColor: "var(--kp20)"
+        }
+    },
+    
 ];
 
 
