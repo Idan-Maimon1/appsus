@@ -56,10 +56,14 @@ export default {
         };
     },
     created() {
+        setInterval(this.matchMQ, 2000)
         const currNote = this.note
         this.currNote = currNote
     },
     methods: {
+        matchMQ() {
+            this.isModBarOn = window.matchMedia('(max-width: 700px)').matches
+        },
         toggleEditNote() {
             eventBus.emit('editNote', this.note)
         },
