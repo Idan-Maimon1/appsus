@@ -25,6 +25,9 @@
     .note-preview .palette-hub {
         margin-left: 0;
     }
+    .note-preview{
+        border-radius: 30px;
+    }
 
     .keep {
         top: auto;
