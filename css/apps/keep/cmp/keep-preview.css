@@ -16,14 +16,13 @@
     align-self: stretch;
     align-items: center;
     max-width: 550px;
+    padding: 0 10px;
 }
 
 
 .note-preview img {
     width: 175px;
     border-radius: 1.5vw;
-    margin-left: 8px;
-    margin-right: 8px;
 }
 
 .note-preview iframe {
@@ -33,8 +32,6 @@
     width: 260px;
     border: 0px;
     border-radius: 2vh;
-    margin-left: 8px;
-    margin-right: 8px;
 }
 
 .note-pin-status {
